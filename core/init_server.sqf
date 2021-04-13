@@ -1,4 +1,4 @@
-[] call compile preprocessFileLineNumbers "core\fnc\city\init.sqf";
+[] call btc_fnc_city_init;
 
 ["btc_m", -1, objNull, "", false, false] call btc_fnc_task_create;
 [["btc_dft", "btc_m"], 0] call btc_fnc_task_create;
@@ -6,9 +6,9 @@
 
 if (btc_db_load && {profileNamespace getVariable [format ["btc_hm_%1_db", worldName], false]}) then {
     if ((profileNamespace getVariable [format ["btc_hm_%1_version", worldName], 1.13]) in [1.193, 1.2, btc_version select 1]) then {
-        [] call compile preprocessFileLineNumbers "core\fnc\db\load.sqf";
+        [] call btc_fnc_db_load;
     } else {
-        [] call compile preprocessFileLineNumbers "core\fnc\db\load_old.sqf";
+        [] call btc_fnc_db_load_old;
     };
 } else {
     for "_i" from 1 to btc_hideout_n do {[] call btc_fnc_mil_create_hideout;};

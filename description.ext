@@ -33,7 +33,6 @@ class RscTitles {
 #include "modules\KPPLM\ui\KPPLM_dialog.hpp"
 
 class CfgFunctions {
-    #include "core\fnc\eh\functions.hpp"
     #include "modules\KPPLM\KPPLM_functions.hpp"
     #include "modules\GEMINI\functions.hpp"
     // add your own functions below
@@ -51,9 +50,9 @@ class CfgNotifications
 };
 
 // CBA XEH
-class Extended_PreInit_EventHandlers {
-    #include "core\fnc\eh\xeh_PreInit_EH.hpp"
-};
+// class Extended_PreInit_EventHandlers {
+//     #include "core\fnc\eh\xeh_PreInit_EH.hpp"
+// };
 
 class Extended_InitPost_EventHandlers {
     class LandVehicle {
