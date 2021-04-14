@@ -1,6 +1,6 @@
 class btc {
     class db {
-        file = "core/fnc/db";
+        file = "core\fnc\db";
         class db_save {};
         class db_delete {};
         class db_autosave {};
@@ -12,24 +12,24 @@ class btc {
         class db_load_old {};
     };
     class data {
-        file = "core/fnc/data";
+        file = "core\fnc\data";
         class data_add_group {};
         class data_get_group {};
         class data_spawn_group {};
     };
     class deaf {
-        file = "core/fnc/deaf";
+        file = "core\fnc\deaf";
         class deaf_earringing {};
     };
     class task {
-        file = "core/fnc/task";
+        file = "core\fnc\task";
         class task_create {};
         class task_setState {};
         class task_setDescription {};
         class task_abort {};
     };
     class tow {
-        file = "core/fnc/tow";
+        file = "core\fnc\tow";
         class tow_ropeCreate {};
         class tow_hitch_points {};
         class tow_unhook {};
@@ -37,7 +37,7 @@ class btc {
         class tow_check {};
     };
     class arsenal {
-        file = "core/fnc/arsenal";
+        file = "core\fnc\arsenal";
         class arsenal_data {};
         class arsenal_garage {};
         class arsenal_loadout {};
@@ -46,7 +46,7 @@ class btc {
         class arsenal_weaponsFilter {};
     }
     class spect {
-        file = "core/fnc/spect";
+        file = "core\fnc\spect";
         class spect_updateDevice {};
         class spect_frequencies {};
         class spect_disableDevice {};
@@ -54,7 +54,7 @@ class btc {
         class spect_electronicFailure {};
     };
     class rep {
-        file = "core/fnc/rep";
+        file = "core\fnc\rep";
         class rep_treatment {};
         class rep_hd {};
         class rep_killed {};
@@ -69,7 +69,7 @@ class btc {
         class rep_explosives_defuse {};
     };
     class log {
-        file = "core/fnc/log";
+        file = "core\fnc\log";
         class log_get_corner_points {};
         class log_delete {};
         class log_create {};
@@ -96,7 +96,7 @@ class btc {
         class log_server_repair_wreck {};
     };
     class lift {
-        file = "core/fnc/lift";
+        file = "core\fnc\lift";
         class lift_check {};
         class lift_deployRopes {};
         class lift_destroyRopes {};
@@ -106,7 +106,7 @@ class btc {
         class lift_hudLoop {};
     };
     class info {
-        file = "core/fnc/info";
+        file = "core\fnc\info";
         class info_ask {};
         class info_hideout_asked {};
         class info_search_for_intel {};
@@ -121,7 +121,7 @@ class btc {
         class info_path {};
     };
     class int {
-        file = "core/fnc/int";
+        file = "core\fnc\int";
         class int_add_actions {};
         class int_orders {};
         class int_shortcuts {};
@@ -131,7 +131,7 @@ class btc {
         class int_ask_var {};
     };
     class fob {
-        file = "core/fnc/fob";
+        file = "core\fnc\fob";
         class fob_create {};
         class fob_redeploy {};
         class fob_mob_respawns {};
@@ -141,7 +141,7 @@ class btc {
         class fob_killed {};
     };
     class eh {
-        file = "core/fnc/eh";
+        file = "core\fnc\eh";
         class eh_player_respawn {};
         class eh_CuratorObjectPlaced {};
         class eh_player {};
@@ -156,7 +156,7 @@ class btc {
         class eh_veh_init {};
     };
     class ied {
-        file = "core/fnc/ied";
+        file = "core\fnc\ied";
         class ied_effects {};
         class ied_effect_smoke {};
         class ied_effect_color_smoke {};
@@ -183,7 +183,7 @@ class btc {
         class ied_randomRoadPos {};
     };
     class civ {
-        file = "core/fnc/civ";
+        file = "core\fnc\civ";
         class civ_add_leaflets {};
         class civ_leaflets {};
         class civ_class {};
@@ -199,7 +199,7 @@ class btc {
         class civ_evacuate {};
     };
     class debug {
-        file = "core/fnc/debug";
+        file = "core\fnc\debug";
         class debug_marker {};
         class debug_units {};
         class debug_fps {};
@@ -207,7 +207,7 @@ class btc {
         class debug_message {};
     };
     class chem {
-        file = "core/fnc/chem";
+        file = "core\fnc\chem";
         class chem_biopsy {};
         class chem_damageLoop {};
         class chem_ehDetector {};
@@ -219,7 +219,7 @@ class btc {
         class chem_deconShowerAnimLarge {};
     };
     class common {
-        file = "core/fnc/common";
+        file = "core\fnc\common";
         class end_mission {};
         class get_cardinal {};
         class show_hint {};
@@ -252,7 +252,7 @@ class btc {
         class setVehProperties {};
     };
     class patrol {
-        file = "core/fnc/patrol";
+        file = "core\fnc\patrol";
         class patrol_eh {};
         class patrol_disabled {};
         class patrol_playersInAreaCityGroup {};
@@ -263,7 +263,7 @@ class btc {
         class patrol_addWP {};
     };
     class mil {
-        file = "core/fnc/mil";
+        file = "core\fnc\mil";
         class mil_class {};
         class mil_ammoUsage {};
         class mil_unit_killed {};
@@ -286,7 +286,7 @@ class btc {
         class mil_createUnits {};
     };
     class cache {
-        file = "core/fnc/cache";
+        file = "core\fnc\cache";
         class cache_hd_cache {};
         class cache_find_pos {};
         class cache_create {};
@@ -294,7 +294,7 @@ class btc {
         class cache_init {};
     };
     class city {
-        file = "core/fnc/city";
+        file = "core\fnc\city";
         class city_activate {};
         class city_create {};
         class city_de_activate {};
@@ -305,7 +305,7 @@ class btc {
         class city_init {};
     };
     class side {
-        file = "core/fnc/side";
+        file = "core\fnc\side";
         class side_convoy {};
         class side_rescue {};
         class side_capture_officer {};
