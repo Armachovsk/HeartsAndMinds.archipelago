@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_side_hostage
+Function: BTC_fnc_side_hostage
 
 Description:
     Fill me when you edit me !
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [] spawn btc_fnc_side_hostage;
+        [] spawn BTC_fnc_side_hostage;
     (end)
 
 Author:
@@ -27,13 +27,13 @@ params [
 //// Choose an occupied City \\\\
 private _useful = btc_city_all select {!(isNull _x) && _x getVariable ["occupied", false] && !((_x getVariable ["type", ""]) in ["NameLocal", "Hill", "NameMarine"])};
 
-if (_useful isEqualTo []) exitWith {[] spawn btc_fnc_side_create;};
+if (_useful isEqualTo []) exitWith {[] spawn BTC_fnc_side_create;};
 
 private _city = selectRandom _useful;
 
 //// Randomise position \\\\
-private _houses = [getPos _city, 100] call btc_fnc_getHouses;
-if (_houses isEqualTo []) exitWith {[] spawn btc_fnc_side_create;};
+private _houses = [getPos _city, 100] call BTC_fnc_getHouses;
+if (_houses isEqualTo []) exitWith {[] spawn BTC_fnc_side_create;};
 _houses = _houses apply {[count (_x buildingPos -1), _x]};
 _houses sort false;
 private _house = objNull;
@@ -55,10 +55,10 @@ private _civType = selectRandom btc_civ_type_units;
 private _captive = _group_civ createUnit [_civType, _pos, [], 0, "CAN_COLLIDE"];
 waitUntil {local _captive};
 [_captive, true] call ACE_captives_fnc_setHandcuffed;
-[_group_civ] call btc_fnc_civ_unit_create;
+[_group_civ] call BTC_fnc_civ_unit_create;
 
 //// Data side mission
-[_taskID, 15, _captive, [_city getVariable "name", _civType]] call btc_fnc_task_create;
+[_taskID, 15, _captive, [_city getVariable "name", _civType]] call BTC_fnc_task_create;
 
 private _group = [];
 {
@@ -67,7 +67,7 @@ private _group = [];
     [_unit] joinSilent _grp;
     _group pushBack _grp;
     _grp setVariable ["no_cache", true];
-    [_grp] call btc_fnc_mil_unit_create;
+    [_grp] call BTC_fnc_mil_unit_create;
 } forEach (_buildingPos - [_pos]);
 
 _trigger = createTrigger ["EmptyDetector", _pos];
@@ -102,14 +102,14 @@ if (random 1 > 0.5) then {
     } forEach _group;
 
     if (_taskID call BIS_fnc_taskState isEqualTo "CANCELED") exitWith {
-        [[], _group + [_group_civ, _trigger, _mine]] call btc_fnc_delete;
+        [[], _group + [_group_civ, _trigger, _mine]] call BTC_fnc_delete;
     };
     if !(alive _unit) exitWith {
         [_taskID, "FAILED"] call BIS_fnc_taskSetState;
-        [[], _group + [_group_civ, _trigger, _mine]] call btc_fnc_delete;
+        [[], _group + [_group_civ, _trigger, _mine]] call BTC_fnc_delete;
     };
 
-    40 call btc_fnc_rep_change;
+    40 call BTC_fnc_rep_change;
 
     [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
 }, [_captive, _mine, _taskID, _group, _group_civ, _trigger, _mine]] call CBA_fnc_addEventHandlerArgs;

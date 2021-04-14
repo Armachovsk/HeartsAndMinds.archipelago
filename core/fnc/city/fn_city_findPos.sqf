@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_city_findPos
+Function: BTC_fnc_city_findPos
 
 Description:
     Find a random and safe position in a city (not inside rock).
@@ -16,7 +16,7 @@ Returns:
 
 Examples:
     (begin example)
-        _results = [[0, 0, 0], 100, true] call btc_fnc_city_findPos;
+        _results = [[0, 0, 0], 100, true] call BTC_fnc_city_findPos;
     (end)
 
 Author:
@@ -34,7 +34,7 @@ if (_city isEqualType objNull) then {
     _city = position _city;
 };
 
-private _rpos = [_city, _area, _p_sea] call btc_fnc_randomize_pos;
+private _rpos = [_city, _area, _p_sea] call BTC_fnc_randomize_pos;
 
 private _pos_iswater = surfaceIsWater _rpos;
 if !(_pos_iswater) then {
@@ -42,7 +42,7 @@ if !(_pos_iswater) then {
     if !(_newpos isEqualTo []) then {
         _rpos = _newpos;
     };
-    _rpos = [_rpos] call btc_fnc_findPosOutsideRock;
+    _rpos = [_rpos] call BTC_fnc_findPosOutsideRock;
 };
 
 [_rpos, _pos_iswater]

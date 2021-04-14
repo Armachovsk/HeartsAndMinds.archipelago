@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_spect_checkLoop
+Function: BTC_fnc_spect_checkLoop
 
 Description:
     Loop over EMP and create electronic failure to vehicles.
@@ -11,7 +11,7 @@ Returns:
 
 Examples:
     (begin example)
-        [] call btc_fnc_spect_checkLoop;
+        [] call BTC_fnc_spect_checkLoop;
     (end)
 
 Author:
@@ -33,5 +33,5 @@ if !(btc_p_spect) exitWith {};
         _vehiclesAround append (_vehiclesOn inAreaArray [getPosWorld _x, _range, _range]);
     } forEach _emp;
 
-    [_vehiclesAround] call btc_fnc_spect_electronicFailure;
+    [_vehiclesAround] call BTC_fnc_spect_electronicFailure;
 }, 10, [btc_spect_emp, btc_spect_range / 2]] call CBA_fnc_addPerFrameHandler;

@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_mil_createVehicle
+Function: BTC_fnc_mil_createVehicle
 
 Description:
     Create a vehicle with desired crews.
@@ -19,7 +19,7 @@ Returns:
 
 Examples:
     (begin example)
-        _veh = [createGroup [btc_enemy_side, true], getPosATL player] call btc_fnc_mil_createVehicle;
+        _veh = [createGroup [btc_enemy_side, true], getPosATL player] call BTC_fnc_mil_createVehicle;
     (end)
 
 Author:
@@ -50,7 +50,7 @@ if !(_veh_type isKindOf "Plane") then {
 };
 if (_p_chem) then {
     _veh addEventHandler ["GetIn", {
-        [_this select 0, _this select 2] call btc_fnc_chem_propagate;
+        [_this select 0, _this select 2] call BTC_fnc_chem_propagate;
         _this
     }];
 };
@@ -60,7 +60,7 @@ _group selectLeader (driver _veh);
 _units joinSilent _group;
 
 private _cargo = _veh emptyPositions "cargo";
-[_group, _pos, _cargo, _needdiver, _type_units, _type_divers] call btc_fnc_mil_createUnits;
+[_group, _pos, _cargo, _needdiver, _type_units, _type_divers] call BTC_fnc_mil_createUnits;
 
 btc_curator addCuratorEditableObjects [[_veh], false];
 

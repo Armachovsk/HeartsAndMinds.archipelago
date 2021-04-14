@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_ied_suicider_create
+Function: BTC_fnc_ied_suicider_create
 
 Description:
     Create a suicider in a city under a random area.
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        _suicider = [allplayers select 0, 100] call btc_fnc_ied_suicider_create;
+        _suicider = [allplayers select 0, 100] call BTC_fnc_ied_suicider_create;
     (end)
 
 Author:
@@ -28,19 +28,19 @@ params [
 ];
 
 if (btc_debug_log) then {
-    [format ["_name = %1 _area %2", _city getVariable ["name", "name"], _area], __FILE__, [false]] call btc_fnc_debug_message;
+    [format ["_name = %1 _area %2", _city getVariable ["name", "name"], _area], __FILE__, [false]] call BTC_fnc_debug_message;
 };
 
-private _rpos = [position _city, _area] call btc_fnc_randomize_pos;
+private _rpos = [position _city, _area] call BTC_fnc_randomize_pos;
 
 private _group = createGroup civilian;
 private _suicider = _group createUnit [selectRandom btc_civ_type_units, _rpos, [], 0, "CAN_COLLIDE"];
 
-[_group] call btc_fnc_civ_addWP;
+[_group] call BTC_fnc_civ_addWP;
 _group setVariable ["suicider", true];
 
-[_group] call btc_fnc_civ_unit_create;
+[_group] call BTC_fnc_civ_unit_create;
 
-[_suicider] call btc_fnc_ied_suiciderLoop;
+[_suicider] call BTC_fnc_ied_suiciderLoop;
 
 _suicider

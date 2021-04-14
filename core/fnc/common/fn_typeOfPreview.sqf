@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_typeOfPreview
+Function: BTC_fnc_typeOfPreview
 
 Description:
     Return the picture of a class name.
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        [typeOf player] call btc_fnc_typeOfPreview;
+        [typeOf player] call BTC_fnc_typeOfPreview;
     (end)
 
 Author:

@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_fob_killed
+Function: BTC_fnc_fob_killed
 
 Description:
     Delete FOB from the btc_fobs array and remove the flag.
@@ -18,7 +18,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [btc_fobs select 1 select 0] call btc_fnc_fob_killed;
+        _result = [btc_fobs select 1 select 0] call BTC_fnc_fob_killed;
     (end)
 
 Author:
@@ -34,7 +34,7 @@ private _btcRespawn = _struc getVariable ["btc_mob_respawn", []];
 _btcRespawn params ["_marker", "_truck"];
 
 if (btc_debug || btc_debug_log) then {
-    [format ["named %1", _truck], __FILE__, [btc_debug, btc_debug_log]] call btc_fnc_debug_message;
+    [format ["named %1", _truck], __FILE__, [btc_debug, btc_debug_log]] call BTC_fnc_debug_message;
 };
 
 deleteMarker _marker;

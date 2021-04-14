@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_info_ask
+Function: BTC_fnc_info_ask
 
 Description:
     Fill me when you edit me !
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_info_ask;
+        _result = [] call BTC_fnc_info_ask;
     (end)
 
 Author:
@@ -27,7 +27,7 @@ params [
 ];
 
 if !(player getVariable ["interpreter", false]) exitWith {
-    [name _man, localize "STR_BTC_HAM_CON_INFO_ASKREP_NOINTER"] call btc_fnc_showSubtitle;
+    [name _man, localize "STR_BTC_HAM_CON_INFO_ASKREP_NOINTER"] call BTC_fnc_showSubtitle;
 };
 
 if !(_man call ace_medical_status_fnc_isInStableCondition) exitWith {
@@ -37,11 +37,11 @@ if !(_man call ace_medical_status_fnc_isInStableCondition) exitWith {
         localize "STR_BTC_HAM_CON_INFO_ASK_WOUNDED3",
         localize "STR_BTC_HAM_CON_INFO_ASK_WOUNDED4"
     ];
-    [name _man, _complain] call btc_fnc_showSubtitle;
+    [name _man, _complain] call BTC_fnc_showSubtitle;
 };
 
 if ((_man getVariable ["btc_already_asked", false]) || (_man getVariable ["btc_already_interrogated", false])) exitWith {
-    [name _man, localize "STR_BTC_HAM_CON_INFO_ASK_ALLREADYANS"] call btc_fnc_showSubtitle;
+    [name _man, localize "STR_BTC_HAM_CON_INFO_ASK_ALLREADYANS"] call BTC_fnc_showSubtitle;
 };
 
 if ((round random 3) >= 2 || !_isInterrogate) then {
@@ -52,7 +52,7 @@ if ((round random 3) >= 2 || !_isInterrogate) then {
 //NO < 200 . FAKE < 600 . REAL > 600
 
 btc_int_ask_data = nil;
-["btc_global_reputation"] remoteExecCall ["btc_fnc_int_ask_var", 2];
+["btc_global_reputation"] remoteExecCall ["BTC_fnc_int_ask_var", 2];
 
 waitUntil {!(isNil "btc_int_ask_data")};
 
@@ -68,11 +68,11 @@ switch !(_isInterrogate) do {
 };
 if (_isInterrogate) then {_info_type = "REAL";};
 if (_info_type isEqualTo "NO") exitWith {
-    [name _man, localize "STR_BTC_HAM_CON_INFO_ASK_NOINFO"] call btc_fnc_showSubtitle;
+    [name _man, localize "STR_BTC_HAM_CON_INFO_ASK_NOINFO"] call BTC_fnc_showSubtitle;
 };
 
 btc_int_ask_data = nil;
-[8] remoteExecCall ["btc_fnc_int_ask_var", 2];
+[8] remoteExecCall ["BTC_fnc_int_ask_var", 2];
 
 waitUntil {!(isNil "btc_int_ask_data")};
 
@@ -88,30 +88,30 @@ switch (_info_type) do {
     case "REAL" : {
         switch (_info) do {
             case "TROOPS" : {
-                [name _man, true] spawn btc_fnc_info_troops;
+                [name _man, true] spawn BTC_fnc_info_troops;
             };
             case "HIDEOUT" : {
-                [name _man, true] spawn btc_fnc_info_hideout_asked;
+                [name _man, true] spawn BTC_fnc_info_hideout_asked;
             };
             case "CACHE" : {
-                [name _man, localize "STR_BTC_HAM_CON_INFO_ASK_CACHEMAP"] call btc_fnc_showSubtitle;
+                [name _man, localize "STR_BTC_HAM_CON_INFO_ASK_CACHEMAP"] call BTC_fnc_showSubtitle;
                 sleep 2;
-                [true] remoteExecCall ["btc_fnc_info_cache", 2];
+                [true] remoteExecCall ["BTC_fnc_info_cache", 2];
             };
         };
     };
     case "FAKE" : {
         switch (_info) do {
             case "TROOPS" : {
-                [name _man, false] spawn btc_fnc_info_troops;
+                [name _man, false] spawn BTC_fnc_info_troops;
             };
             case "HIDEOUT" : {
-                [name _man, false] spawn btc_fnc_info_hideout_asked;
+                [name _man, false] spawn BTC_fnc_info_hideout_asked;
             };
             case "CACHE" : {
-                [name _man, localize "STR_BTC_HAM_CON_INFO_ASK_CACHEMAP"] call btc_fnc_showSubtitle;
+                [name _man, localize "STR_BTC_HAM_CON_INFO_ASK_CACHEMAP"] call BTC_fnc_showSubtitle;
                 sleep 2;
-                [false] remoteExecCall ["btc_fnc_info_cache", 2];
+                [false] remoteExecCall ["BTC_fnc_info_cache", 2];
             };
         };
     };

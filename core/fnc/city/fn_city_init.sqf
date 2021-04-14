@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_city_init
+Function: BTC_fnc_city_init
 
 Description:
     Create cities all over the map and store those properties.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [] call btc_fnc_city_init;
+        [] call BTC_fnc_city_init;
     (end)
 
 Author:
@@ -69,12 +69,12 @@ for "_id" from 0 to (count _locations - 1) do {
             _radius_y = 80;
         };
 
-        [_position, _type, _name, _radius_x, _radius_y, random 1 > _is_free_probability, _id] call btc_fnc_city_create;
+        [_position, _type, _name, _radius_x, _radius_y, random 1 > _is_free_probability, _id] call BTC_fnc_city_create;
     };
 };
 
 if !(isNil "btc_custom_loc") then {
-    {_x call btc_fnc_city_create} forEach btc_custom_loc;
+    {_x call BTC_fnc_city_create} forEach btc_custom_loc;
 };
 
 btc_city_all = btc_city_all apply {if (isNil "_x") then {objNull} else {_x}};

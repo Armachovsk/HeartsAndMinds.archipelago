@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_get_class
+Function: BTC_fnc_get_class
 
 Description:
     Get enemy or civilian factions.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        copyToClipboard str (["CIV"] call btc_fnc_get_class);
+        copyToClipboard str (["CIV"] call BTC_fnc_get_class);
     (end)
 
 Author:

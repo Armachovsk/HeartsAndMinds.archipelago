@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_set_groupsOwner
+Function: BTC_fnc_set_groupsOwner
 
 Description:
     Transfert groups to a headless client.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        [btc_patrol_active + btc_civ_veh_active] call btc_fnc_set_groupsOwner;
+        [btc_patrol_active + btc_civ_veh_active] call BTC_fnc_set_groupsOwner;
     (end)
 
 Author:

@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_getVehProperties
+Function: BTC_fnc_getVehProperties
 
 Description:
     Get properties of a vehicle.
@@ -19,7 +19,7 @@ Returns:
 
 Examples:
     (begin example)
-        [vehicle player] call btc_fnc_getVehProperties;
+        [vehicle player] call BTC_fnc_getVehProperties;
     (end)
 
 Author:

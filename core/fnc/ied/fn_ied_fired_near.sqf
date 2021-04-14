@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_ied_fired_near
+Function: BTC_fnc_ied_fired_near
 
 Description:
     This check if bullets/grenade are trow around IED created during the mission and trigger them.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        _PFH_id = [btc_ied_list] call btc_fnc_ied_fired_near;
+        _PFH_id = [btc_ied_list] call BTC_fnc_ied_fired_near;
     (end)
 
 Author:
@@ -53,7 +53,7 @@ private _cfgAmmo = configFile >> "cfgAmmo";
                         [{!alive (_this select 2)}, {
                             params ["_wreck", "_ied", "_bullet", "_detected_grenade"];
 
-                            if (alive _ied) then {[_wreck, _ied] call btc_fnc_ied_boom;};
+                            if (alive _ied) then {[_wreck, _ied] call BTC_fnc_ied_boom;};
                             {
                                 if (isNull _x) then {
                                     _detected_grenade deleteAt _forEachIndex;
@@ -67,7 +67,7 @@ private _cfgAmmo = configFile >> "cfgAmmo";
                     private _caliber = getNumber (_cfgAmmo >> _bullet_type >> "caliber") > 1.6;
                     if (_explosive || _caliber) then {
                         if (alive _ied) then {
-                            [_wreck, _ied] call btc_fnc_ied_boom;
+                            [_wreck, _ied] call BTC_fnc_ied_boom;
                         };
                     };
                 };

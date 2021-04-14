@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_info_path
+Function: BTC_fnc_info_path
 
 Description:
     Show path of a patrol to set an amboush.
@@ -15,7 +15,7 @@ Returns:
 
 Examples:
     (begin example)
-        [group player, [0, 0, 0], "playerPath"] call btc_fnc_info_path;
+        [group player, [0, 0, 0], "playerPath"] call BTC_fnc_info_path;
     (end)
 
 Author:

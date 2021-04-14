@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_side_create
+Function: BTC_fnc_side_create
 
 Description:
     Create side mission inside the H&M task system.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        [false, "btc_fnc_side_supply"] spawn btc_fnc_side_create;
+        [false, "BTC_fnc_side_supply"] spawn BTC_fnc_side_create;
     (end)
 
 Author:
@@ -30,17 +30,17 @@ if (_side_fnc_name isEqualTo "") then {
     if (btc_side_list_use isEqualTo []) then {
         btc_side_list_use = btc_side_list call BIS_fnc_arrayShuffle;
     };
-    _side_fnc_name = format ["btc_fnc_side_%1", btc_side_list_use deleteAt 0];
+    _side_fnc_name = format ["BTC_fnc_side_%1", btc_side_list_use deleteAt 0];
 };
 
 btc_side_ID = btc_side_ID + 1;
 private _tskID = format ["btc_tsk_%1", btc_side_ID];
 if ([_tskID] call BIS_fnc_taskExists) exitWith {
-    _this call btc_fnc_side_create;
+    _this call BTC_fnc_side_create;
 };
 
 [_tskID] call (missionNamespace getVariable [_side_fnc_name, {}]);
 
 if (_cycle) then {
-    [true] spawn btc_fnc_side_create;
+    [true] spawn BTC_fnc_side_create;
 };

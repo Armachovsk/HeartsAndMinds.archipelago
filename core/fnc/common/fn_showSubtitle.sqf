@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_showSubtitle
+Function: BTC_fnc_showSubtitle
 
 Description:
     Show text as a subtitle.
@@ -17,9 +17,9 @@ Returns:
 
 Examples:
     (begin example)
-        ["Some Guy","How do yo do?"] call btc_fnc_showSubtitle;
-        ["Darth Vader","Come to the dark side. We have cookies!", false, "#ed2939"] call btc_fnc_showSubtitle;
-        ["Luke Skywalker","Whhhhhhyyyyyyyy", true, "#1768d3", nil, "PuristaBold"] call btc_fnc_showSubtitle;
+        ["Some Guy","How do yo do?"] call BTC_fnc_showSubtitle;
+        ["Darth Vader","Come to the dark side. We have cookies!", false, "#ed2939"] call BTC_fnc_showSubtitle;
+        ["Luke Skywalker","Whhhhhhyyyyyyyy", true, "#1768d3", nil, "PuristaBold"] call BTC_fnc_showSubtitle;
     (end)
 
 Author:
@@ -36,7 +36,7 @@ Author:
 
 disableSerialization;
 // Create display and control
-"btc_fnc_showSubtitle" cutRsc ["RscDynamicText", "PLAIN"];
+"BTC_fnc_showSubtitle" cutRsc ["RscDynamicText", "PLAIN"];
 [{private _display = uiNamespace getVariable "BIS_dynamicText"; !(isNull _display)}, {
 
     params [

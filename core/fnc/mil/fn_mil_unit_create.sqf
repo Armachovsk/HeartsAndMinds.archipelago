@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_mil_unit_create
+Function: BTC_fnc_mil_unit_create
 
 Description:
     Fill me when you edit me !
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_mil_unit_create;
+        _result = [] call BTC_fnc_mil_unit_create;
     (end)
 
 Author:
@@ -30,9 +30,9 @@ btc_curator addCuratorEditableObjects [_units, false];
 
 {
     _x setVariable ["btc_init", true];
-    _x call btc_fnc_mil_add_eh;
+    _x call BTC_fnc_mil_add_eh;
 
     if (btc_p_set_skill) then {
-        _x call btc_fnc_mil_set_skill;
+        _x call BTC_fnc_mil_set_skill;
     };
 } forEach _units;

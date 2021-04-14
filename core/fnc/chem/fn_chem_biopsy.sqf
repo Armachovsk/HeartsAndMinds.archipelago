@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_chem_biopsy
+Function: BTC_fnc_chem_biopsy
 
 Description:
     Do a biopsy to determine if the object is contaminated.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        [[player, "head", 50], true] call btc_fnc_chem_biopsy;
+        [[player, "head", 50], true] call BTC_fnc_chem_biopsy;
     (end)
 
 Author:

@@ -1,9 +1,9 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_mil_send
+Function: BTC_fnc_mil_send
 
 Description:
-    Send a group of units to a location then call btc_fnc_data_add_group. If player is around, initiate patrol around the destination, ifnot save in database and delete units.
+    Send a group of units to a location then call BTC_fnc_data_add_group. If player is around, initiate patrol around the destination, ifnot save in database and delete units.
 
 Parameters:
     _start - Starting point. [Object]
@@ -17,7 +17,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_mil_send;
+        _result = [] call BTC_fnc_mil_send;
     (end)
 
 Author:
@@ -38,11 +38,11 @@ private _pos = getPos _start;
 private _group = grpNull;
 switch (_typeOf_patrol) do {
     case 0 : {
-        _group = ([_pos, 150, 3 + round random 6, 1] call btc_fnc_mil_create_group) select 0;
+        _group = ([_pos, 150, 3 + round random 6, 1] call BTC_fnc_mil_create_group) select 0;
         _group setVariable ["no_cache", true];
         [_group] call CBA_fnc_clearWaypoints;
 
-        [_group, _dest, -1, "MOVE", "AWARE", "RED", "FULL", _infFormation, "(group this) call btc_fnc_data_add_group;", nil, 60] call CBA_fnc_addWaypoint;
+        [_group, _dest, -1, "MOVE", "AWARE", "RED", "FULL", _infFormation, "(group this) call BTC_fnc_data_add_group;", nil, 60] call CBA_fnc_addWaypoint;
     };
     case 1 : {
         _group = createGroup [btc_enemy_side, true];
@@ -50,17 +50,17 @@ switch (_typeOf_patrol) do {
 
         if (_veh_type isEqualTo "") then {_veh_type = selectRandom btc_type_motorized};
 
-        private _return_pos = [_pos, 10, 500, 13, false] call btc_fnc_findsafepos;
+        private _return_pos = [_pos, 10, 500, 13, false] call BTC_fnc_findsafepos;
 
-        private _veh = [_group, _return_pos, _veh_type] call btc_fnc_mil_createVehicle;
+        private _veh = [_group, _return_pos, _veh_type] call BTC_fnc_mil_createVehicle;
 
-        [_group, _dest, -1, "MOVE", "AWARE", "RED", "NORMAL", "NO CHANGE", "(group this) call btc_fnc_data_add_group;", nil, 60] call CBA_fnc_addWaypoint;
+        [_group, _dest, -1, "MOVE", "AWARE", "RED", "NORMAL", "NO CHANGE", "(group this) call BTC_fnc_data_add_group;", nil, 60] call CBA_fnc_addWaypoint;
         [_group, _dest, -1, "GETOUT", nil, nil, nil, nil, nil, nil, 60] call CBA_fnc_addWaypoint;
         [_group, _dest, -1, "SENTRY", nil, nil, nil, nil, nil, nil, 60] call CBA_fnc_addWaypoint;
 
     };
 };
 
-[[_group]] call btc_fnc_set_groupsOwner;
+[[_group]] call BTC_fnc_set_groupsOwner;
 
 _group

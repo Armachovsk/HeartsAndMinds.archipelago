@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_mil_create_hideout
+Function: BTC_fnc_mil_create_hideout
 
 Description:
     Fill me when you edit me !
@@ -17,7 +17,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_mil_create_hideout;
+        _result = [] call BTC_fnc_mil_create_hideout;
     (end)
 
 Author:
@@ -46,8 +46,8 @@ if (_pos isEqualTo []) then {
     _city = selectRandom _useful;
 
     private _radius = ((_city getVariable ["RadiusX", 0]) + (_city getVariable ["RadiusY", 0]))/2;
-    private _random_pos = [getPos _city, _radius] call btc_fnc_randomize_pos;
-    _pos = [_random_pos, 0, 100, 2, false] call btc_fnc_findsafepos;
+    private _random_pos = [getPos _city, _radius] call BTC_fnc_randomize_pos;
+    _pos = [_random_pos, 0, 100, 2, false] call BTC_fnc_findsafepos;
 
     _id = _city getVariable ["id", 0];
     _city setVariable ["occupied", true];
@@ -62,9 +62,9 @@ _city setVariable ["ho_pos", _pos];
 if (btc_debug) then {deleteMarker format ["loc_%1", _id];};
 deleteVehicle (_city getVariable ["trigger_player_side", objNull]);
 
-[_pos, btc_hideouts_radius, btc_hideouts_radius, _city, _city getVariable "occupied", _city getVariable "name", _city getVariable "type", _city getVariable "id"] call btc_fnc_city_trigger_player_side;
+[_pos, btc_hideouts_radius, btc_hideouts_radius, _city, _city getVariable "occupied", _city getVariable "name", _city getVariable "type", _city getVariable "id"] call BTC_fnc_city_trigger_player_side;
 
-private _hideout = [_pos] call btc_fnc_mil_create_hideout_composition;
+private _hideout = [_pos] call BTC_fnc_mil_create_hideout_composition;
 clearWeaponCargoGlobal _hideout;
 clearItemCargoGlobal _hideout;
 clearMagazineCargoGlobal _hideout;
@@ -74,7 +74,7 @@ _hideout setVariable ["rinf_time", _rinf_time];
 _hideout setVariable ["cap_time", _cap_time];
 _hideout setVariable ["assigned_to", _city];
 
-_hideout addEventHandler ["HandleDamage", btc_fnc_mil_hd_hideout];
+_hideout addEventHandler ["HandleDamage", BTC_fnc_mil_hd_hideout];
 
 private _markers = [];
 {
@@ -99,7 +99,7 @@ if (btc_debug) then {
 };
 
 if (btc_debug_log) then {
-    [format ["_this = %1 ; POS %2 ID %3", _this, _pos, btc_hideouts_id], __FILE__, [false]] call btc_fnc_debug_message;
+    [format ["_this = %1 ; POS %2 ID %3", _this, _pos, btc_hideouts_id], __FILE__, [false]] call BTC_fnc_debug_message;
 };
 
 btc_hideouts_id = btc_hideouts_id + 1;

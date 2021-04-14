@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_fob_create_s
+Function: BTC_fnc_fob_create_s
 
 Description:
    Create the FOB.
@@ -18,7 +18,7 @@ Returns:
 
 Examples:
     (begin example)
-        [getPos player, random 360, "My FOB"] call btc_fnc_fob_create_s;
+        [getPos player, random 360, "My FOB"] call BTC_fnc_fob_create_s;
     (end)
 
 Author:

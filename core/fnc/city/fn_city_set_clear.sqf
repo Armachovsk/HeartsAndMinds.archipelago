@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_city_set_clear
+Function: BTC_fnc_city_set_clear
 
 Description:
     Define a city with the corresponding ID as clear (no more occupied).
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_city_set_clear;
+        _result = [] call BTC_fnc_city_set_clear;
     (end)
 
 Author:

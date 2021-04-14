@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_eh_veh_add_respawn
+Function: BTC_fnc_eh_veh_add_respawn
 
 Description:
     Add a vehicle to the respawn system and save vehicle parameters.
@@ -15,7 +15,7 @@ Returns:
 
 Examples:
     (begin example)
-        [cursorObject, 30] call btc_fnc_eh_veh_add_respawn;
+        [cursorObject, 30] call BTC_fnc_eh_veh_add_respawn;
     (end)
 
 Author:
@@ -33,7 +33,7 @@ private _type = typeOf _vehicle;
 private _pos = getPosASL _vehicle;
 private _dir = getDir _vehicle;
 private _vector = [vectorDir _vehicle, vectorUp _vehicle];
-private _vehProperties = [_vehicle] call btc_fnc_getVehProperties;
+private _vehProperties = [_vehicle] call BTC_fnc_getVehProperties;
 _vehProperties set [5, false];
 
 _vehicle setVariable ["data_respawn", [_type, _pos, _dir, _time, _vector] + _vehProperties];
@@ -46,12 +46,12 @@ _vehicle addMPEventHandler ["MPKilled", {
         {_unit getVariable ["btc_killed", true]} // https://feedback.bistudio.com/T149510
     ) then {
         _unit setVariable ["btc_killed", false];
-        [_unit] call btc_fnc_eh_veh_respawn;
+        [_unit] call BTC_fnc_eh_veh_respawn;
     };
 }];
 if (_p_chem) then {
     _vehicle addEventHandler ["GetIn", {
-        [_this select 0, _this select 2] call btc_fnc_chem_propagate;
+        [_this select 0, _this select 2] call BTC_fnc_chem_propagate;
         _this
     }];
 };

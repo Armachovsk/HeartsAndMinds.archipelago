@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_civ_evacuate
+Function: BTC_fnc_civ_evacuate
 
 Description:
     Evacuate civlians around a position in an area of 200 to a safe position.
@@ -13,7 +13,7 @@ Returns:
     _civilians - Civlians found. [Array]
 Examples:
     (begin example)
-        _civilians = [[0, 0, 0], [100, 100, 100]] call btc_fnc_civ_evacuate;
+        _civilians = [[0, 0, 0], [100, 100, 100]] call BTC_fnc_civ_evacuate;
     (end)
 
 Author:
@@ -46,7 +46,7 @@ if (_position_evac isEqualTo []) then {
     private _group = group _x;
     [_group] call CBA_fnc_clearWaypoints;
 
-    [_group, _position_evac, 20] call btc_fnc_civ_addWP;
+    [_group, _position_evac, 20] call BTC_fnc_civ_addWP;
 } forEach _civilians;
 
 _civilians

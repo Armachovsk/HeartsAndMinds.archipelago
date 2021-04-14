@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_ied_init_area
+Function: BTC_fnc_ied_init_area
 
 Description:
     Initialize positions of IEDS.
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_ied_init_area;
+        _result = [] call BTC_fnc_ied_init_area;
     (end)
 
 Author:
@@ -35,8 +35,8 @@ private _active = true;
 
 for "_i" from 1 to _n do {
     private _sel_pos = _pos;
-    _sel_pos = [_pos, _area] call btc_fnc_randomize_pos;
-    _sel_pos = [_sel_pos, 30, 150, 1, false] call btc_fnc_findsafepos;
+    _sel_pos = [_pos, _area] call BTC_fnc_randomize_pos;
+    _sel_pos = [_sel_pos, 30, 150, 1, false] call BTC_fnc_findsafepos;
 
     private _type_ied = selectRandom btc_model_ieds;
 
@@ -47,7 +47,7 @@ for "_i" from 1 to _n do {
         if !(_roads isEqualTo []) then {
             private _obj = selectRandom _roads;
 
-            private _arr = _obj call btc_fnc_ied_randomRoadPos;
+            private _arr = _obj call BTC_fnc_ied_randomRoadPos;
             _sel_pos = _arr select 0;
             _dir = _arr select 1;
         };
@@ -59,7 +59,7 @@ for "_i" from 1 to _n do {
 
                 if (isNull _obj) exitWith {};
 
-                private _arr = _obj call btc_fnc_ied_randomRoadPos;
+                private _arr = _obj call BTC_fnc_ied_randomRoadPos;
                 _sel_pos = _arr select 0;
                 _dir = _arr select 1;
             };
@@ -76,7 +76,7 @@ for "_i" from 1 to _n do {
     };
 
     if (btc_debug_log) then {
-        [format ["_this = %1  POS %2  N %3(%4)", _this, _sel_pos, _i, _n], __FILE__, [false]] call btc_fnc_debug_message;
+        [format ["_this = %1  POS %2  N %3(%4)", _this, _sel_pos, _i, _n], __FILE__, [false]] call BTC_fnc_debug_message;
     };
 
     _array pushBack [_sel_pos, _type_ied, _dir, _active];
@@ -86,8 +86,8 @@ _active = false;
 
 for "_i" from 1 to _n do {
     private _sel_pos = _pos;
-    _sel_pos = [_pos, _area] call btc_fnc_randomize_pos;
-    _sel_pos = [_sel_pos, 30, 150, 1, false] call btc_fnc_findsafepos;
+    _sel_pos = [_pos, _area] call BTC_fnc_randomize_pos;
+    _sel_pos = [_sel_pos, 30, 150, 1, false] call BTC_fnc_findsafepos;
 
     private _type_ied = selectRandom btc_model_ieds;
 
@@ -98,7 +98,7 @@ for "_i" from 1 to _n do {
         if !(_roads isEqualTo []) then     {
             private _obj = selectRandom _roads;
 
-            private _arr = _obj call btc_fnc_ied_randomRoadPos;
+            private _arr = _obj call BTC_fnc_ied_randomRoadPos;
             _sel_pos = _arr select 0;
             _dir = _arr select 1;
         };
@@ -114,7 +114,7 @@ for "_i" from 1 to _n do {
     };
 
     if (btc_debug_log) then {
-         [format ["_this = %1 ; POS %2 ; N %3(%4)", _this, _sel_pos, _i, _n], __FILE__, [false]] call btc_fnc_debug_message;
+         [format ["_this = %1 ; POS %2 ; N %3(%4)", _this, _sel_pos, _i, _n], __FILE__, [false]] call BTC_fnc_debug_message;
     };
 
     _array pushBack [_sel_pos, _type_ied, _dir, _active];

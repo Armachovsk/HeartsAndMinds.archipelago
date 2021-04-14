@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_rep_remove_eh
+Function: BTC_fnc_rep_remove_eh
 
 Description:
     Remove event to civilian.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [cursorObject] call btc_fnc_rep_remove_eh;
+        [cursorObject] call BTC_fnc_rep_remove_eh;
     (end)
 
 Author:
@@ -24,6 +24,6 @@ params [
     ["_civilian", objNull, [objNull]]
 ];
 
-[_civilian, "FiredNear", "btc_fnc_rep_firednear"] call btc_fnc_eh_removePersistOnLocalityChange;
-[_civilian, "HandleDamage", "btc_fnc_rep_hd"] remoteExecCall ["btc_fnc_eh_removePersistOnLocalityChange", _civilian];
-[_civilian, "Killed", "btc_fnc_rep_killed"] remoteExecCall ["btc_fnc_eh_removePersistOnLocalityChange", _civilian];
+[_civilian, "FiredNear", "BTC_fnc_rep_firednear"] call BTC_fnc_eh_removePersistOnLocalityChange;
+[_civilian, "HandleDamage", "BTC_fnc_rep_hd"] remoteExecCall ["BTC_fnc_eh_removePersistOnLocalityChange", _civilian];
+[_civilian, "Killed", "BTC_fnc_rep_killed"] remoteExecCall ["BTC_fnc_eh_removePersistOnLocalityChange", _civilian];

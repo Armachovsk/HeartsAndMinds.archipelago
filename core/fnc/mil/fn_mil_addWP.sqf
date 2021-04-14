@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_mil_addWP
+Function: BTC_fnc_mil_addWP
 
 Description:
     Add waypoint to allready created units.
@@ -16,7 +16,7 @@ Returns:
 
 Examples:
     (begin example)
-        [group cursorObject, btc_city_all select 0, 200] call btc_fnc_mil_addWP;
+        [group cursorObject, btc_city_all select 0, 200] call BTC_fnc_mil_addWP;
     (end)
 
 Author:
@@ -34,14 +34,14 @@ params [
 _wp_ratios params ["_wp_house_probability", "_wp_sentry_probability"];
 
 private _pos = position _city;
-private _rpos = [_pos, _area] call btc_fnc_randomize_pos;
+private _rpos = [_pos, _area] call BTC_fnc_randomize_pos;
 
 switch (true) do {
     case (_wp <= _wp_house_probability) : {
-        private _houses = [_city, _area] call btc_fnc_getHouses;
+        private _houses = [_city, _area] call BTC_fnc_getHouses;
         if !(_houses isEqualTo []) then {
             private _house = selectRandom _houses;
-            [_group, _house] spawn btc_fnc_house_addWP;
+            [_group, _house] spawn BTC_fnc_house_addWP;
             _group setVariable ["btc_inHouse", typeOf _house];
         } else {
             [_group, _rpos, _area, 2 + floor (random 4), "MOVE", "SAFE", "RED", ["LIMITED", "NORMAL"] select ((vehicle leader _group) isKindOf "Air"), "STAG COLUMN", "", [5, 10, 20]] call CBA_fnc_taskPatrol;
@@ -51,7 +51,7 @@ switch (true) do {
         [_group, _rpos, _area, 2 + floor (random 4), "MOVE", "AWARE", "RED", ["LIMITED", "NORMAL"] select ((vehicle leader _group) isKindOf "Air"), "STAG COLUMN", "", [5, 10, 20]] call CBA_fnc_taskPatrol;
     };
     case (_wp > _wp_sentry_probability) : {
-        [_group, _rpos, -1, "SENTRY", "AWARE", "RED", "UNCHANGED", "WEDGE", "(group this) spawn btc_fnc_data_add_group;", [18000, 36000, 54000]] call CBA_fnc_addWaypoint;
+        [_group, _rpos, -1, "SENTRY", "AWARE", "RED", "UNCHANGED", "WEDGE", "(group this) spawn BTC_fnc_data_add_group;", [18000, 36000, 54000]] call CBA_fnc_addWaypoint;
     };
 };
 

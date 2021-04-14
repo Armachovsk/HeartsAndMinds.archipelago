@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_setVehProperties
+Function: BTC_fnc_setVehProperties
 
 Description:
     Set properties of a vehicle.
@@ -20,7 +20,7 @@ Returns:
 
 Examples:
     (begin example)
-        [vehicle player] call btc_fnc_setVehProperties;
+        [vehicle player] call BTC_fnc_setVehProperties;
     (end)
 
 Author:

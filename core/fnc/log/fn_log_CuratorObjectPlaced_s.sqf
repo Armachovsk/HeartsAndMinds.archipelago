@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_log_CuratorObjectPlaced_s
+Function: BTC_fnc_log_CuratorObjectPlaced_s
 
 Description:
     Fill me when you edit me !
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_log_CuratorObjectPlaced_s;
+        _result = [] call BTC_fnc_log_CuratorObjectPlaced_s;
     (end)
 
 Author:
@@ -24,8 +24,8 @@ params [
     ["_obj_created", objNull, [objNull]]
 ];
 
-[_obj_created] call btc_fnc_log_init;
+[_obj_created] call BTC_fnc_log_init;
 
 if (btc_debug_log) then {
-    [format ["btc_log_obj_created UPDATED by curator %1", _obj_created], __FILE__, [false]] call btc_fnc_debug_message;
+    [format ["btc_log_obj_created UPDATED by curator %1", _obj_created], __FILE__, [false]] call BTC_fnc_debug_message;
 };

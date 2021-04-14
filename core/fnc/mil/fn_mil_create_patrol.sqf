@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_mil_create_patrol
+Function: BTC_fnc_mil_create_patrol
 
 Description:
     Fill me when you edit me !
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_mil_create_patrol;
+        _result = [] call BTC_fnc_mil_create_patrol;
     (end)
 
 Author:
@@ -35,13 +35,13 @@ if (_random isEqualTo 0) then {
 };
 
 if (btc_debug_log) then {
-    [format ["_random = %1 _active_city %2 _area %3 btc_patrol_active = %4", _random, _active_city, _area, count btc_patrol_active], __FILE__, [false]] call btc_fnc_debug_message;
+    [format ["_random = %1 _active_city %2 _area %3 btc_patrol_active = %4", _random, _active_city, _area, count btc_patrol_active], __FILE__, [false]] call BTC_fnc_debug_message;
 };
 
 sleep 5 + random 10;
 
 //Remove if too far from player
-if ([_active_city, grpNull, _area] call btc_fnc_patrol_playersInAreaCityGroup) exitWith {false};
+if ([_active_city, grpNull, _area] call BTC_fnc_patrol_playersInAreaCityGroup) exitWith {false};
 
 //Find a city
 private _cities = btc_city_all inAreaArray [getPosWorld _active_city, _area, _area];
@@ -52,7 +52,7 @@ if (_usefuls isEqualTo []) exitWith {false};
 private _start_city = selectRandom _usefuls;
 private _pos = [];
 if (_start_city getVariable ["hasbeach", false]) then {
-    _pos = [getPos _start_city, (_start_city getVariable ["RadiusX", 0]) + (_start_city getVariable ["RadiusY", 0]), btc_p_sea] call btc_fnc_randomize_pos;
+    _pos = [getPos _start_city, (_start_city getVariable ["RadiusX", 0]) + (_start_city getVariable ["RadiusY", 0]), btc_p_sea] call BTC_fnc_randomize_pos;
 } else {
     _pos = getPos _start_city;
 };
@@ -72,9 +72,9 @@ btc_military_id = btc_military_id + 1;
 switch (_random) do {
     case 1 : {
         private _n_units = 5 + (round random 8);
-        _pos = [_pos, 0, 50, 10, false] call btc_fnc_findsafepos;
+        _pos = [_pos, 0, 50, 10, false] call BTC_fnc_findsafepos;
 
-        [_group, _pos, _n_units] call btc_fnc_mil_createUnits;
+        [_group, _pos, _n_units] call BTC_fnc_mil_createUnits;
     };
     case 2 : {
         private _veh_type = "";
@@ -86,20 +86,20 @@ switch (_random) do {
             private _roads = _pos nearRoads 150;
             _roads = _roads select {isOnRoad _x};
             if (_roads isEqualTo []) then {
-                _pos = [_pos, 0, 500, 13, false] call btc_fnc_findsafepos;
+                _pos = [_pos, 0, 500, 13, false] call BTC_fnc_findsafepos;
             } else {
                 _pos = getPos selectRandom _roads;
             };
         };
-        private _veh = [_group, _pos, _veh_type] call btc_fnc_mil_createVehicle;
+        private _veh = [_group, _pos, _veh_type] call BTC_fnc_mil_createVehicle;
         _veh setVariable ["btc_crews", _group];
 
-        [_veh, "Fuel", "btc_fnc_patrol_eh"] call btc_fnc_eh_persistOnLocalityChange;
+        [_veh, "Fuel", "BTC_fnc_patrol_eh"] call BTC_fnc_eh_persistOnLocalityChange;
     };
 };
 
-[_group, [_start_city, _active_city], _area, _pos_isWater] call btc_fnc_patrol_init;
+[_group, [_start_city, _active_city], _area, _pos_isWater] call BTC_fnc_patrol_init;
 
-[[_group]] call btc_fnc_set_groupsOwner;
+[[_group]] call BTC_fnc_set_groupsOwner;
 
 true

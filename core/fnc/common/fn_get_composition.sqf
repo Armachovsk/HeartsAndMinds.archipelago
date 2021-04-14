@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_get_composition
+Function: BTC_fnc_get_composition
 
 Description:
     Get a composition of objects around a position.
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        copyToClipboard str ([getPosASL player] call btc_fnc_get_composition);
+        copyToClipboard str ([getPosASL player] call BTC_fnc_get_composition);
     (end)
 
 Author:

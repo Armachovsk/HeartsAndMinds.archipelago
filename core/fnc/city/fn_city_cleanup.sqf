@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_city_cleanUp
+Function: BTC_fnc_city_cleanUp
 
 Description:
     Delete all ground weapon holder (in range of 500 m), dead bodies (in range of 500 m) and empty group.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [] call btc_fnc_city_cleanUp;
+        [] call BTC_fnc_city_cleanUp;
     (end)
 
 Author:

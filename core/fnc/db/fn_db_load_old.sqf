@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_db_load_old
+Function: BTC_fnc_db_load_old
 
 Description:
     Load older database version thanks to profileNamespace getVariable [format ["btc_hm_%1_version", worldName], 1.13].
@@ -71,8 +71,8 @@ private _size = count _locations;
         (_city getVariable ["marker", ""]) setMarkerText format ["loc_%3 %1 %2 - [%4]", _city getVariable "name", _city getVariable "type", _id, _occupied];
     };
     if (btc_debug_log) then {
-        [format ["ID: %1 - IsOccupied %2", _id, _occupied], __FILE__, [false]] call btc_fnc_debug_message;
-        [format ["data_city: %1", _x], __FILE__, [false]] call btc_fnc_debug_message;
+        [format ["ID: %1 - IsOccupied %2", _id, _occupied], __FILE__, [false]] call BTC_fnc_debug_message;
+        [format ["data_city: %1", _x], __FILE__, [false]] call BTC_fnc_debug_message;
     };
 } forEach _cities_status;
 
@@ -82,7 +82,7 @@ private _array_ho = profileNamespace getVariable [format ["btc_hm_%1_ho", _name]
 {
     private _id = _x select 4;
     _x set [4, _oldID_to_newID select _id];
-    _x call btc_fnc_mil_create_hideout;
+    _x call BTC_fnc_mil_create_hideout;
 } forEach _array_ho;
 
 private _ho = profileNamespace getVariable [format ["btc_hm_%1_ho_sel", _name], 0];
@@ -93,7 +93,7 @@ if (_select_ho isEqualTo - 1) then {
     btc_hq = btc_hideouts select _select_ho;
 };
 
-if (btc_hideouts isEqualTo []) then {[] spawn btc_fnc_final_phase;};
+if (btc_hideouts isEqualTo []) then {[] spawn BTC_fnc_final_phase;};
 
 //CACHE
 btc_cache_markers = [];
@@ -105,7 +105,7 @@ btc_cache_pos = _array_cache select 0;
 btc_cache_n = _array_cache select 1;
 btc_cache_info = _array_cache select 2;
 
-call btc_fnc_cache_create;
+call BTC_fnc_cache_create;
 
 {
     _x params ["_pos", "_marker_name"];
@@ -124,7 +124,7 @@ private _fobs = profileNamespace getVariable [format ["btc_hm_%1_fobs", _name], 
 {
     _x params ["_fob_name", "_pos", ["_direction", 0, [0]]];
 
-    [_pos, _direction, _fob_name] call btc_fnc_fob_create_s;
+    [_pos, _direction, _fob_name] call BTC_fnc_fob_create_s;
 } forEach (_fobs select 0);
 
 //REP
@@ -142,14 +142,14 @@ private _vehs = profileNamespace getVariable [format ["btc_hm_%1_vehs", _name], 
         _x params ["_veh_type", "_veh_pos", "_veh_dir", "_veh_fuel", "_veh_AllHitPointsDamage", "_veh_cargo", "_veh_cont", "_customization"];
 
         if (btc_debug_log) then {
-            [format ["_veh = %1", _x], __FILE__, [false]] call btc_fnc_debug_message;
+            [format ["_veh = %1", _x], __FILE__, [false]] call BTC_fnc_debug_message;
         };
 
-        private _veh = [_veh_type, _veh_pos, _veh_dir, _customization] call btc_fnc_log_createVehicle;
+        private _veh = [_veh_type, _veh_pos, _veh_dir, _customization] call BTC_fnc_log_createVehicle;
         if ((getPos _veh) select 2 < 0) then {_veh setVectorUp surfaceNormal position _veh;};
         _veh setFuel _veh_fuel;
 
-        [_veh, _veh_cargo, _veh_cont] call btc_fnc_db_loadCargo;
+        [_veh, _veh_cargo, _veh_cont] call BTC_fnc_db_loadCargo;
 
         //Disable explosion effect during database loading
         {
@@ -169,7 +169,7 @@ private _vehs = profileNamespace getVariable [format ["btc_hm_%1_vehs", _name], 
 //Objects
 private _objs = profileNamespace getVariable [format ["btc_hm_%1_objs", _name], []];
 {
-    [_x] call btc_fnc_db_loadObjectStatus;
+    [_x] call BTC_fnc_db_loadObjectStatus;
 } forEach _objs;
 
 //Player Markers

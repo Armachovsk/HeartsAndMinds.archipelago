@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_ied_suiciderLoop
+Function: BTC_fnc_ied_suiciderLoop
 
 Description:
     Search for soldier around and when found, activate the suicider.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [_suicider] call btc_fnc_ied_suiciderLoop;
+        [_suicider] call BTC_fnc_ied_suiciderLoop;
     (end)
 
 Author:
@@ -25,8 +25,8 @@ Author:
 
     if (alive _suicider && !isNull _suicider) then {
         if !((_suicider nearEntities ["SoldierWB", 25]) isEqualTo []) exitWith {
-            _suicider call btc_fnc_ied_suicider_active;
+            _suicider call BTC_fnc_ied_suicider_active;
         };
-        _this call btc_fnc_ied_suiciderLoop;
+        _this call BTC_fnc_ied_suiciderLoop;
     };
 }, _this, 5] call CBA_fnc_waitAndExecute;

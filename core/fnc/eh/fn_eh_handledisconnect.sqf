@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_eh_handledisconnect
+Function: BTC_fnc_eh_handledisconnect
 
 Description:
     Delete headless.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [headless] call btc_fnc_eh_handledisconnect;
+        [headless] call BTC_fnc_eh_handledisconnect;
     (end)
 
 Author:

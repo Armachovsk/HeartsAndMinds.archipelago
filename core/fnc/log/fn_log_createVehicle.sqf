@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_log_createVehicle
+Function: BTC_fnc_log_createVehicle
 
 Description:
     Creates an empty object of given classname type.
@@ -21,7 +21,7 @@ Returns:
 
 Examples:
     (begin example)
-        _veh = ["vehicle_class_name", getPos player] call btc_fnc_log_createVehicle;
+        _veh = ["vehicle_class_name", getPos player] call BTC_fnc_log_createVehicle;
     (end)
 
 Author:
@@ -46,7 +46,7 @@ private _veh  = createVehicle [_type, ASLToATL _pos, [], 0, "CAN_COLLIDE"];
 _veh setDir _dir;
 _veh setPosASL _pos;
 
-[_veh, _customization, _isMedicalVehicle, _isRepairVehicle, _fuelSource, _pylons, _isContaminated, _supplyVehicle] call btc_fnc_setVehProperties;
+[_veh, _customization, _isMedicalVehicle, _isRepairVehicle, _fuelSource, _pylons, _isContaminated, _supplyVehicle] call BTC_fnc_setVehProperties;
 
 _veh setVariable ["btc_dont_delete", true];
 
@@ -54,6 +54,6 @@ if (getNumber(configFile >> "CfgVehicles" >> typeOf _veh >> "isUav") isEqualTo 1
     createVehicleCrew _veh;
 };
 
-_veh call btc_fnc_db_add_veh;
+_veh call BTC_fnc_db_add_veh;
 
 _veh

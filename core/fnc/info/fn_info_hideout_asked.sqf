@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_info_hideout_asked
+Function: BTC_fnc_info_hideout_asked
 
 Description:
     Fill me when you edit me !
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_info_hideout_asked;
+        _result = [] call BTC_fnc_info_hideout_asked;
     (end)
 
 Author:
@@ -30,7 +30,7 @@ params [
 
 if (_is_real) then {
     btc_int_ask_data = nil;
-    [1, player] remoteExecCall ["btc_fnc_int_ask_var", 2];
+    [1, player] remoteExecCall ["BTC_fnc_int_ask_var", 2];
 
     waitUntil {!(isNil "btc_int_ask_data")};
 
@@ -38,7 +38,7 @@ if (_is_real) then {
         private _hideout = btc_int_ask_data;
         private _dist = (player distance _hideout) + (random 500) - (random 500);
         private _dir = player getDir _hideout;
-        private _card = [_dir] call btc_fnc_get_cardinal;
+        private _card = [_dir] call BTC_fnc_get_cardinal;
         _text = format [localize "STR_BTC_HAM_CON_INFO_ASKHIDEOUT_TRUE", _card, round _dist];
     } else {
         _text = localize "STR_BTC_HAM_CON_INFO_ASKHIDEOUT_FALSE";
@@ -56,5 +56,5 @@ if (_is_real) then {
 
 if (btc_debug) then {_text = _text + " - " + str _is_real};
 
-[_name, _text] call btc_fnc_showSubtitle;
+[_name, _text] call BTC_fnc_showSubtitle;
 player createDiaryRecord ["btc_diarylog", [str(mapGridPosition player) + " - " + _name, _text]];

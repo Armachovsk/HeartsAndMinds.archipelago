@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_tow_ropeCreate
+Function: BTC_fnc_tow_ropeCreate
 
 Description:
     Tow a vehicle.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        [cursorObject] spawn btc_fnc_tow_ropeCreate;
+        [cursorObject] spawn BTC_fnc_tow_ropeCreate;
     (end)
 
 Author:
@@ -29,14 +29,14 @@ if !((isVehicleCargo btc_log_vehicle_selected) isEqualTo objNull) exitWith {(loc
 if (_tower setVehicleCargo btc_log_vehicle_selected) exitWith {};
 
 btc_int_ask_data = nil;
-[4, _tower] remoteExecCall ["btc_fnc_int_ask_var", 2];
+[4, _tower] remoteExecCall ["BTC_fnc_int_ask_var", 2];
 
 waitUntil {!(isNil "btc_int_ask_data")};
 
 if (!isNull btc_int_ask_data) exitWith {(localize "STR_BTC_HAM_LOG_TOW_ALREADYTOWED") call CBA_fnc_notify;};
 
-private _model_rear_tower = ([_tower] call btc_fnc_tow_hitch_points) select 1;
-private _model_front_selected = ([btc_log_vehicle_selected] call btc_fnc_tow_hitch_points) select 0;
+private _model_rear_tower = ([_tower] call BTC_fnc_tow_hitch_points) select 1;
+private _model_front_selected = ([btc_log_vehicle_selected] call BTC_fnc_tow_hitch_points) select 0;
 private _relative_pos = - (_model_front_selected select 1) + (_model_rear_tower select 1) - ((btc_log_vehicle_selected modelToWorld _model_front_selected) distance (_tower modelToWorld _model_rear_tower));
 private _attachTo_pos = if (_tower isKindOf "Ship") then {
     [0, (-(_model_front_selected select 1) + (_model_rear_tower select 1) - 3), 0]

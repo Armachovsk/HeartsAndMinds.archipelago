@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_strategicMapOpen
+Function: BTC_fnc_strategicMapOpen
 
 Description:
     Show strategic map with the possibility to navigate freely on the map.
@@ -48,7 +48,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_strategicMapOpen;
+        _result = [] call BTC_fnc_strategicMapOpen;
     (end)
 
 Author:

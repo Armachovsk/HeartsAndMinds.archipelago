@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_ied_belt
+Function: BTC_fnc_ied_belt
 
 Description:
     Arrange three objects in upper direction.
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        [object1, object2, object3] call btc_fnc_ied_belt;
+        [object1, object2, object3] call BTC_fnc_ied_belt;
     (end)
 
 Author:

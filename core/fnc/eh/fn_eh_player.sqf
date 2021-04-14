@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_eh_player
+Function: BTC_fnc_eh_player
 
 Description:
     Add event handler to player.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        _eventHandleID = [player] call btc_fnc_eh_player;
+        _eventHandleID = [player] call BTC_fnc_eh_player;
     (end)
 
 Author:
@@ -25,10 +25,10 @@ params [
     ["_player", objNull, [objNull]]
 ];
 
-_player addEventHandler ["Respawn", format ["[%1] call btc_fnc_eh_player_respawn", getPosASL player]];
-_player addEventHandler ["CuratorObjectPlaced", btc_fnc_eh_CuratorObjectPlaced];
-["ace_treatmentSucceded", btc_fnc_rep_treatment] call CBA_fnc_addEventHandler;
-_player addEventHandler ["WeaponAssembled", btc_fnc_civ_add_leaflets];
+_player addEventHandler ["Respawn", format ["[%1] call BTC_fnc_eh_player_respawn", getPosASL player]];
+_player addEventHandler ["CuratorObjectPlaced", BTC_fnc_eh_CuratorObjectPlaced];
+["ace_treatmentSucceded", BTC_fnc_rep_treatment] call CBA_fnc_addEventHandler;
+_player addEventHandler ["WeaponAssembled", BTC_fnc_civ_add_leaflets];
 _player addEventHandler ["WeaponAssembled", {
     params [
         ["_player", objNull, [objNull]],
@@ -37,7 +37,7 @@ _player addEventHandler ["WeaponAssembled", {
 
     if !(_rallyPoint isKindOf "Camping_base_F") exitWith {_this};
 
-    [_rallyPoint] remoteExecCall ["btc_fnc_fob_init", [0, 2] select isDedicated];
+    [_rallyPoint] remoteExecCall ["BTC_fnc_fob_init", [0, 2] select isDedicated];
 
     _this
 }];
@@ -48,28 +48,28 @@ _player addEventHandler ["WeaponAssembled", {
     ];
 
     if !(_static isKindOf "StaticWeapon") exitWith {_this};
-    [_static] remoteExecCall ["btc_fnc_log_init", 2];
+    [_static] remoteExecCall ["BTC_fnc_log_init", 2];
 }];
 ["ace_csw_deployWeaponSucceeded", {
-    _this remoteExecCall ["btc_fnc_log_init", [0, 2] select isDedicated];
+    _this remoteExecCall ["BTC_fnc_log_init", [0, 2] select isDedicated];
 }] call CBA_fnc_addEventHandler;
 
 if (btc_p_chem) then {
      // Add biopsy
-    [missionnamespace, "probingEnded", btc_fnc_chem_biopsy] call BIS_fnc_addScriptedEventHandler;
+    [missionnamespace, "probingEnded", BTC_fnc_chem_biopsy] call BIS_fnc_addScriptedEventHandler;
 
      // Disable BI shower
     ["DeconShower_01_F", "init", {(_this select 0) setVariable ['bin_deconshower_disableAction', true];}] call CBA_fnc_addClassEventHandler;
     ["DeconShower_02_F", "init", {(_this select 0) setVariable ['bin_deconshower_disableAction', true];}] call CBA_fnc_addClassEventHandler;
 
-    [] call btc_fnc_chem_ehDetector;
+    [] call BTC_fnc_chem_ehDetector;
 };
 
 if (btc_p_spect) then {
-    ["weapon", {_this call btc_fnc_spect_updateDevice}] call CBA_fnc_addPlayerEventHandler;
+    ["weapon", {_this call BTC_fnc_spect_updateDevice}] call CBA_fnc_addPlayerEventHandler;
     ["vehicle", {
         params ["_unit", "_newVehicle"];
-        [] call btc_fnc_spect_disableDevice;
-        [_unit, currentWeapon _unit] call btc_fnc_spect_updateDevice;
+        [] call BTC_fnc_spect_disableDevice;
+        [_unit, currentWeapon _unit] call BTC_fnc_spect_updateDevice;
     }] call CBA_fnc_addPlayerEventHandler;
 };

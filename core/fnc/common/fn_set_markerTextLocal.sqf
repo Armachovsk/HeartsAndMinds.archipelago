@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_set_markerTextLocal
+Function: BTC_fnc_set_markerTextLocal
 
 Description:
     Add local text to a marker.
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        [] call btc_fnc_set_markerTextLocal;
+        [] call BTC_fnc_set_markerTextLocal;
     (end)
 
 Author:

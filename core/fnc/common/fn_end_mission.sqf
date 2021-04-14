@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_end_mission
+Function: BTC_fnc_end_mission
 
 Description:
     Message shown when the mission end.
@@ -11,7 +11,7 @@ Returns:
 
 Examples:
     (begin example)
-        [] call btc_fnc_end_mission;
+        [] call BTC_fnc_end_mission;
     (end)
 
 Author:

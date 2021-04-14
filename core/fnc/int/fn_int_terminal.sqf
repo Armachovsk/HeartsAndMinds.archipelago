@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_int_terminal
+Function: BTC_fnc_int_terminal
 
 Description:
     Fill me when you edit me !
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_int_terminal;
+        _result = [] call BTC_fnc_int_terminal;
     (end)
 
 Author:

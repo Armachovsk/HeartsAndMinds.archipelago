@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_mil_create_hideout_composition
+Function: BTC_fnc_mil_create_hideout_composition
 
 Description:
     Fill me when you edit me !
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_mil_create_hideout_composition;
+        _result = [] call BTC_fnc_mil_create_hideout_composition;
     (end)
 
 Author:
@@ -48,6 +48,6 @@ if (random 1 > 0.5) then {
     _composition_hideout pushBack [selectRandom btc_type_camonet,0,[-0.84668,-2.16113,0]];
 };
 
-private _composition = [_pos, random 360, _composition_hideout] call btc_fnc_create_composition;
+private _composition = [_pos, random 360, _composition_hideout] call BTC_fnc_create_composition;
 
 _composition select ((_composition apply {typeOf _x}) find _type_bigbox);

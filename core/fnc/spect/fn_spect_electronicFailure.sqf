@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_spect_electronicFailure
+Function: BTC_fnc_spect_electronicFailure
 
 Description:
     Apply electronic failure.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [[vehicle (allPlayers select 0)]] call btc_fnc_spect_electronicFailure;
+        [[vehicle (allPlayers select 0)]] call BTC_fnc_spect_electronicFailure;
     (end)
 
 Author:

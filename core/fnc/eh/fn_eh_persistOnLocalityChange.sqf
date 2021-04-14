@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_eh_persistOnLocalityChange
+Function: BTC_fnc_eh_persistOnLocalityChange
 
 Description:
     Some event handler (EH) are trigger where the unit is local. This add EH to headless or client on locality change. When locality change back to server, the EH is removed from client. EH are always keep on server in case client lost connection.
@@ -16,7 +16,7 @@ Returns:
 
 Examples:
     (begin example)
-        [cursorObject, "Killed", "btc_fnc_mil_unit_killed"] call btc_fnc_eh_persistOnLocalityChange;
+        [cursorObject, "Killed", "BTC_fnc_mil_unit_killed"] call BTC_fnc_eh_persistOnLocalityChange;
     (end)
 
 Author:
@@ -54,9 +54,9 @@ if ((toLower _EH_name) in ["killed", "handledamage", "hit"]) then { // Those EH 
                 ];
 
                 if !(isServer) then { // Keep EH on server in case owner drop connection
-                    [_entity, _EH_name, _EH_fnc, false] call btc_fnc_eh_removePersistOnLocalityChange;
+                    [_entity, _EH_name, _EH_fnc, false] call BTC_fnc_eh_removePersistOnLocalityChange;
                 } else {
-                    [_entity, _EH_name, _EH_fnc, _params] remoteExecCall ["btc_fnc_eh_persistOnLocalityChange", _entity];
+                    [_entity, _EH_name, _EH_fnc, _params] remoteExecCall ["BTC_fnc_eh_persistOnLocalityChange", _entity];
                 };
             };
         }, [_EH_name, _EH_fnc, _params]] call CBA_fnc_addBISEventHandler
@@ -64,7 +64,7 @@ if ((toLower _EH_name) in ["killed", "handledamage", "hit"]) then { // Those EH 
 };
 
 if (btc_debug_log) then {
-    [format ["%1: EH = %2, fnc = %3, isRE = %4", _object, _EH_name, _EH_fnc, isRemoteExecuted], __FILE__, [false]] call btc_fnc_debug_message;
+    [format ["%1: EH = %2, fnc = %3, isRE = %4", _object, _EH_name, _EH_fnc, isRemoteExecuted], __FILE__, [false]] call BTC_fnc_debug_message;
 };
 
 _object setVariable [

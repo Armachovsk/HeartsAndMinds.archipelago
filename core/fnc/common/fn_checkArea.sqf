@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_checkArea
+Function: BTC_fnc_checkArea
 
 Description:
     Check if the area is clear.
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        _isNotClear = [btc_log_create_obj] call btc_fnc_checkArea;
+        _isNotClear = [btc_log_create_obj] call BTC_fnc_checkArea;
     (end)
 
 Author:

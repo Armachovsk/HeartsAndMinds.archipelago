@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_rep_treatment
+Function: BTC_fnc_rep_treatment
 
 Description:
     Change reputation when a caller is healing a civilian.
@@ -15,7 +15,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_rep_treatment;
+        _result = [] call BTC_fnc_rep_treatment;
     (end)
 
 Author:
@@ -32,5 +32,5 @@ params [
 
 if (isPlayer _target) exitWith {};
 if ((alive _target) && (side _target isEqualTo civilian) && !(_className in ["CheckPulse", "CheckBloodPressure", "CheckResponse"])) then {
-    _this remoteExecCall ["btc_fnc_rep_hh", 2];
+    _this remoteExecCall ["BTC_fnc_rep_hh", 2];
 };

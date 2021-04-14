@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_ied_drone_fire
+Function: BTC_fnc_ied_drone_fire
 
 Description:
     Fire bomb of the drone.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [_trigger] call btc_fnc_ied_drone_fire;
+        [_trigger] call BTC_fnc_ied_drone_fire;
     (end)
 
 Author:

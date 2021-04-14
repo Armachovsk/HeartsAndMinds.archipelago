@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_fob_init
+Function: BTC_fnc_fob_init
 
 Description:
     Store FOB data in btc_fobs global variable.
@@ -15,7 +15,7 @@ Returns:
 
 Examples:
     (begin example)
-        [cursorObject] call btc_fnc_fob_init;
+        [cursorObject] call BTC_fnc_fob_init;
     (end)
 
 Author:

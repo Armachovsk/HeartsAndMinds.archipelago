@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_city_de_activate
+Function: BTC_fnc_city_de_activate
 
 Description:
     Desactivate the city with the corresponding ID by storing all groups present inside and clean up dead bodies.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_city_de_activate;
+        _result = [] call BTC_fnc_city_de_activate;
     (end)
 
 Author:
@@ -56,11 +56,11 @@ if !(_city getVariable ["active", false]) exitWith {};
     private _data_units = [];
     {
         if ((leader _x) inArea [_pos_city, _radius, _radius, 0, false] && {side _x != btc_player_side} && {!(_x getVariable ["no_cache", false])}) then {
-            private _data_group = _x call btc_fnc_data_get_group;
+            private _data_group = _x call BTC_fnc_data_get_group;
             _data_units pushBack _data_group;
 
             if (btc_debug_log) then {
-                [format ["data units = %1", _data_units], __FILE__, [false]] call btc_fnc_debug_message;
+                [format ["data units = %1", _data_units], __FILE__, [false]] call BTC_fnc_debug_message;
             };
         };
     } forEach allGroups;
@@ -69,9 +69,9 @@ if !(_city getVariable ["active", false]) exitWith {};
     _city setVariable ["active", false];
 
     if (!btc_hideout_cap_checking) then {
-        [] call btc_fnc_mil_check_cap;
+        [] call BTC_fnc_mil_check_cap;
     };
 
-    [] call btc_fnc_city_cleanUp;
+    [] call BTC_fnc_city_cleanUp;
 
 }, [_city, _id]] call CBA_fnc_waitUntilAndExecute;

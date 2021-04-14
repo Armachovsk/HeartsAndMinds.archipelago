@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_typeOf
+Function: BTC_fnc_typeOf
 
 Description:
     Get the classe name of an object. Very usefull for terrain objects.
@@ -14,7 +14,7 @@ Returns:
 Examples:
     (begin example)
         a = nearestTerrainObjects [player, [], 3, false];
-        [a select 0] call btc_fnc_typeOf;
+        [a select 0] call BTC_fnc_typeOf;
     (end)
 
 Author:

@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_delete
+Function: BTC_fnc_delete
 
 Description:
     Delete markers and the JIP remoteExec associated. Delete objects when player is far from them.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        [["mymarker"], [objNull, grpNull]] call btc_fnc_delete;
+        [["mymarker"], [objNull, grpNull]] call BTC_fnc_delete;
     (end)
 
 Author:
@@ -32,4 +32,4 @@ params [
     remoteExecCall ["", _x];
 } forEach _markers;
 
-[_objects] call btc_fnc_deleteEntities;
+[_objects] call BTC_fnc_deleteEntities;

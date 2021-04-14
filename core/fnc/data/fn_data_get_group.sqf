@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_data_get_group
+Function: BTC_fnc_data_get_group
 
 Description:
     Get groups parameters (position, waypoints, behaviour ...), save them and delete.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_data_get_group;
+        _result = [] call BTC_fnc_data_get_group;
     (end)
 
 Author:

@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_spect_updateDevice
+Function: BTC_fnc_spect_updateDevice
 
 Description:
     Refresh spectrum device depend on UAV and EMP distance and angle.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        [player, currentWeapon player] call btc_fnc_spect_updateDevice;
+        [player, currentWeapon player] call BTC_fnc_spect_updateDevice;
     (end)
 
 Author:
@@ -64,11 +64,11 @@ btc_spect_updateOn = [{
     ];
 
     if !(((_player weaponAccessories currentWeapon _player) select 0) isEqualTo _accessorie) exitWith {
-        [] call btc_fnc_spect_disableDevice;
-        [_player, currentWeapon _player] call btc_fnc_spect_updateDevice;
+        [] call BTC_fnc_spect_disableDevice;
+        [_player, currentWeapon _player] call BTC_fnc_spect_updateDevice;
     };
 
-    private _signalFrequencies = [_player, allUnitsUAV] call btc_fnc_spect_frequencies;
-    _signalFrequencies append ([_player, btc_spect_emp select {damage _x < 1}, [78, 89]] call btc_fnc_spect_frequencies);
+    private _signalFrequencies = [_player, allUnitsUAV] call BTC_fnc_spect_frequencies;
+    _signalFrequencies append ([_player, btc_spect_emp select {damage _x < 1}, [78, 89]] call BTC_fnc_spect_frequencies);
     missionNamespace setVariable ["#EM_Values", _signalFrequencies];
 }, 1, [_accessorie]] call CBA_fnc_addPerFrameHandler;

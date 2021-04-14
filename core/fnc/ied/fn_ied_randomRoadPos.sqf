@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_ied_randomRoadPos
+Function: BTC_fnc_ied_randomRoadPos
 
 Description:
     Find a position on a road based on the road width.
@@ -16,7 +16,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [(player nearRoads 20)#0] call btc_fnc_ied_randomRoadPos;
+        _result = [(player nearRoads 20)#0] call BTC_fnc_ied_randomRoadPos;
         player setPos _result#0;
         player setDir _result#1;
     (end)
@@ -28,7 +28,7 @@ Author:
 params [
     ["_road", objNull, [objNull]]
 ];
-private _roadDir = _road call btc_fnc_road_direction;
+private _roadDir = _road call BTC_fnc_road_direction;
 private _roadRadius = ((0 boundingBoxReal _road) select 2) * 0.4;
 
 switch (floor random btc_p_ied_placement) do {

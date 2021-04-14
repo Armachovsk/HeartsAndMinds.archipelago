@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_log_server_delete
+Function: BTC_fnc_log_server_delete
 
 Description:
     Delete object created by logistic point.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        [cursorObject] call btc_fnc_log_server_delete;
+        [cursorObject] call BTC_fnc_log_server_delete;
     (end)
 
 Author:
@@ -27,7 +27,7 @@ params [
 ];
 
 if !(_veh in _allowlist) exitWith {
-    [17] remoteExecCall ["btc_fnc_show_hint", remoteExecutedOwner];
+    [17] remoteExecCall ["BTC_fnc_show_hint", remoteExecutedOwner];
 };
 
 [_veh getVariable ["ace_cargo_loaded", []], _allowlist deleteAt (_allowlist find _veh)] call CBA_fnc_deleteEntity;

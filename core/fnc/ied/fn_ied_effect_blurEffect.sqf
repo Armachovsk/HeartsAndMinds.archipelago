@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_ied_effect_blurEffect
+Function: BTC_fnc_ied_effect_blurEffect
 
 Description:
     Add blur effect on player camera.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        [getPos player, player] call btc_fnc_ied_effect_blurEffect;
+        [getPos player, player] call BTC_fnc_ied_effect_blurEffect;
     (end)
 
 Author:

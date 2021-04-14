@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_find_veh_with_turret
+Function: BTC_fnc_find_veh_with_turret
 
 Description:
     Find turret in a vehicle.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        _array = ["B_Heli_Transport_03_F"] call btc_fnc_find_veh_with_turret;
+        _array = ["B_Heli_Transport_03_F"] call BTC_fnc_find_veh_with_turret;
     (end)
 
 Author:

@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_side_mines
+Function: BTC_fnc_side_mines
 
 Description:
     Fill me when you edit me !
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [] spawn btc_fnc_side_mines;
+        [] spawn BTC_fnc_side_mines;
     (end)
 
 Author:
@@ -28,10 +28,10 @@ private _useful = btc_city_all select {!(isNull _x) && !((_x getVariable ["type"
 if (_useful isEqualTo []) then {_useful = + (btc_city_all select {!(isNull _x)});};
 
 private _city = selectRandom _useful;
-private _pos = [getPos _city, 0, 500, 30, false] call btc_fnc_findsafepos;
-if (_pos select 2 > 50) exitWith {[] spawn btc_fnc_side_create;};
+private _pos = [getPos _city, 0, 500, 30, false] call BTC_fnc_findsafepos;
+if (_pos select 2 > 50) exitWith {[] spawn BTC_fnc_side_create;};
 
-[_taskID, 4, _pos, _city getVariable "name"] call btc_fnc_task_create;
+[_taskID, 4, _pos, _city getVariable "name"] call BTC_fnc_task_create;
 
 private _distance_between_fences = 8.1;
 private _number_of_fences = 3 + floor random 4;
@@ -88,17 +88,17 @@ for "_i" from -_number_of_fences to _number_of_fences do {
     };
 };
 
-private _composition_objects = [_pos, selectRandom [0, 90, 180, 270], _composition_pattern] call btc_fnc_create_composition;
+private _composition_objects = [_pos, selectRandom [0, 90, 180, 270], _composition_pattern] call BTC_fnc_create_composition;
 
 private _mines = [];
 for "_i" from 1 to (5 + round random 5) do {
     private _type = "ATMine";
     if (random 1 > 0.6) then {_type = selectRandom btc_type_mines;};
-    private _m_pos = [_pos, _area_size - 10] call btc_fnc_randomize_pos;
+    private _m_pos = [_pos, _area_size - 10] call BTC_fnc_randomize_pos;
     _mines pushBack createMine [_type, _m_pos, [], 0];
 
     if (random 1 > 0.8) then {
-        _m_pos = [_pos, _area_size - 10] call btc_fnc_randomize_pos;
+        _m_pos = [_pos, _area_size - 10] call BTC_fnc_randomize_pos;
         private _s = createVehicle [selectRandom btc_type_signs, _m_pos, [], 10, "CAN_COLLIDE"];
         _s setDir random 360;
         _composition_objects pushBack _s;
@@ -107,17 +107,17 @@ for "_i" from 1 to (5 + round random 5) do {
 
 waitUntil {sleep 5; (_taskID call BIS_fnc_taskCompleted || !(playableUnits inAreaArray [_pos, 100, 100] isEqualTo []))};
 
-private _closest = [_city, btc_city_all select {!(_x getVariable ["active", false])}, false] call btc_fnc_find_closecity;
+private _closest = [_city, btc_city_all select {!(_x getVariable ["active", false])}, false] call BTC_fnc_find_closecity;
 for "_i" from 1 to (round random 2) do {
-    [_closest, _pos, 1, selectRandom btc_type_motorized] spawn btc_fnc_mil_send;
+    [_closest, _pos, 1, selectRandom btc_type_motorized] spawn BTC_fnc_mil_send;
 };
 
 waitUntil {sleep 5; (_taskID call BIS_fnc_taskCompleted || (_mines select {!isNull _x} isEqualTo []))};
 
-[[_area], _mines + _composition_objects] call btc_fnc_delete;
+[[_area], _mines + _composition_objects] call BTC_fnc_delete;
 
 if (_taskID call BIS_fnc_taskState isEqualTo "CANCELED") exitWith {};
 
-30 call btc_fnc_rep_change;
+30 call BTC_fnc_rep_change;
 
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;

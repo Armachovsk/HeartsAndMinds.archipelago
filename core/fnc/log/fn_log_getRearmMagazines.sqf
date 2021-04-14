@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_log_getRearmMagazines
+Function: BTC_fnc_log_getRearmMagazines
 
 Description:
     Fill me when you edit me !
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_log_getRearmMagazines;
+        _result = [] call BTC_fnc_log_getRearmMagazines;
     (end)
 
 Author:
@@ -24,7 +24,7 @@ params [
     ["_rearming_vehicles", [], [[]]]
 ];
 
-private _typeof_rearming_vehicles = ([_rearming_vehicles] call btc_fnc_find_veh_with_turret) select 0;
+private _typeof_rearming_vehicles = ([_rearming_vehicles] call BTC_fnc_find_veh_with_turret) select 0;
 private _rearming_magazines = [];
 {
     private _vehicle_type = _x;
@@ -47,7 +47,7 @@ private _rearming_magazines = [];
         };
     } forEach _pylonConfigs;
 
-    ([[typeOf _vehicle]] call btc_fnc_find_veh_with_turret) params ["", "_magazines"];
+    ([[typeOf _vehicle]] call BTC_fnc_find_veh_with_turret) params ["", "_magazines"];
     _magazineInfo append _magazines;
 
     _rearming_magazines pushBack (_magazineInfo arrayIntersect _magazineInfo);

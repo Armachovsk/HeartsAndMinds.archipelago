@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_create_composition
+Function: BTC_fnc_create_composition
 
 Description:
     Create a composition based on an array containing line for each object of a composition. An objects is describe by : [type of object, direction, real position].
@@ -15,7 +15,7 @@ Returns:
 
 Examples:
     (begin example)
-        _composition_objects = [getPos player, 45, [["Land_Money_F",359.991,[0.833984,-2.00586,1]],["Land_Photoframe_01_F",98.7052,[-0.333984,-2.35547,1]],["Land_BriefingRoomDesk_01_F",0.00013937,[0.285156,-2.2207,0]]]] call btc_fnc_create_composition;
+        _composition_objects = [getPos player, 45, [["Land_Money_F",359.991,[0.833984,-2.00586,1]],["Land_Photoframe_01_F",98.7052,[-0.333984,-2.35547,1]],["Land_BriefingRoomDesk_01_F",0.00013937,[0.285156,-2.2207,0]]]] call BTC_fnc_create_composition;
     (end)
 
 Author:

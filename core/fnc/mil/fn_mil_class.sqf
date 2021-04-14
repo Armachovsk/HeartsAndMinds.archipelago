@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_mil_class
+Function: BTC_fnc_mil_class
 
 Description:
     Find class name from a specific faction.
@@ -24,7 +24,7 @@ Returns:
 
 Examples:
     (begin example)
-        [["IND_F"]] call btc_fnc_mil_class;
+        [["IND_F"]] call BTC_fnc_mil_class;
     (end)
 
 Author:
@@ -68,7 +68,7 @@ _enemy_side = [east, west, independent, civilian] select getNumber (_cfgFactionC
 
 //Prevent selecting same side as player side
 if (_enemy_side isEqualTo btc_player_side) exitWith {
-    [["IND_G_F"], _en_AA, _en_tank] call btc_fnc_mil_class;
+    [["IND_G_F"], _en_AA, _en_tank] call BTC_fnc_mil_class;
 };
 
 {
@@ -78,7 +78,7 @@ if (_enemy_side isEqualTo btc_player_side) exitWith {
     private _allclass_f = _allclass select {(toUpper getText (_cfgVehicles >> _x >> "faction")) isEqualTo _faction};
 
     //Units
-    _divers = _allclass_f select {[_x, ["AssaultRifle", "64 + 32"]] call btc_fnc_mil_ammoUsage};
+    _divers = _allclass_f select {[_x, ["AssaultRifle", "64 + 32"]] call BTC_fnc_mil_ammoUsage};
     if (_divers isEqualTo []) then {
         _divers = if (_enemy_side isEqualTo east) then {
             ["O_diver_F", "O_diver_exp_F", "O_diver_TL_F"]
@@ -105,7 +105,7 @@ if (_enemy_side isEqualTo btc_player_side) exitWith {
     if (isNil "_type_motorized_armed_classes") then {
         _type_motorized_armed_classes = [];
     };
-    _type_motorized_armed append (([_type_motorized_armed_classes] call btc_fnc_find_veh_with_turret) select 0);
+    _type_motorized_armed append (([_type_motorized_armed_classes] call BTC_fnc_find_veh_with_turret) select 0);
 
     //Static
     _type_mg append (_allclass_f select {_x isKindOf "StaticMGWeapon"});
@@ -121,7 +121,7 @@ if (_enemy_side isEqualTo btc_player_side) exitWith {
 //Final filter unwanted units type
 if !(_en_AA) then {
     //Remove Anti-Air Units
-    _type_units = _type_units select {!([_x, ["MissileLauncher", "256"]] call btc_fnc_mil_ammoUsage)};
+    _type_units = _type_units select {!([_x, ["MissileLauncher", "256"]] call BTC_fnc_mil_ammoUsage)};
 };
 _type_units = _type_units select {
     !(getText (_cfgVehicles >> _x >> "role") isEqualTo "Crewman") &&

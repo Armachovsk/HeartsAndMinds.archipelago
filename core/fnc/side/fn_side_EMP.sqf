@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_side_EMP
+Function: BTC_fnc_side_EMP
 
 Description:
     Find and destroy EMP station.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [false, "btc_fnc_side_EMP"] spawn btc_fnc_side_create;
+        [false, "BTC_fnc_side_EMP"] spawn BTC_fnc_side_create;
     (end)
 
 Author:
@@ -25,10 +25,10 @@ params [
 ];
 
 private _useful = btc_city_all select {!(isNull _x) && _x getVariable ["occupied", false] && !((_x getVariable ["type", ""]) in ["NameLocal", "Hill", "NameMarine"])};
-if (_useful isEqualTo []) exitWith {[] spawn btc_fnc_side_create;};
+if (_useful isEqualTo []) exitWith {[] spawn BTC_fnc_side_create;};
 private _city = selectRandom _useful;
 
-[_taskID, 36, [objNull, getPos _city] select (btc_p_spect), _city getVariable "name"] call btc_fnc_task_create;
+[_taskID, 36, [objNull, getPos _city] select (btc_p_spect), _city getVariable "name"] call BTC_fnc_task_create;
 
 _city setVariable ["spawn_more", true];
 
@@ -39,8 +39,8 @@ private _composition = [];
 private _tasksID = [];
 
 for "_i" from 0 to (1 + round random 2) do {
-    private _pos = [getPos _city, _radius] call btc_fnc_randomize_pos;
-    _pos = [_pos, 0, 300, 15, false] call btc_fnc_findsafepos;
+    private _pos = [getPos _city, _radius] call BTC_fnc_randomize_pos;
+    _pos = [_pos, 0, 300, 15, false] call BTC_fnc_findsafepos;
 
     private _antenna = btc_type_satelliteAntenna + btc_type_antenna;
     private _boxType = selectRandom (btc_cache_type select 0);
@@ -62,7 +62,7 @@ for "_i" from 0 to (1 + round random 2) do {
         ]
     };
 
-    private _station = [_pos, random 360, _composition_station] call btc_fnc_create_composition;
+    private _station = [_pos, random 360, _composition_station] call BTC_fnc_create_composition;
     _composition append _station;
     private _box = _station select ((_station apply {typeOf _x}) find _boxType);
     btc_spect_emp pushBack _box;
@@ -74,13 +74,13 @@ for "_i" from 0 to (1 + round random 2) do {
         if (random 1 > 0.5) then {
             private _direction = random 360;
             private _statics = btc_type_gl + btc_type_mg;
-            [_pos getPos [5, _direction], _statics, _direction] call btc_fnc_mil_create_static;
+            [_pos getPos [5, _direction], _statics, _direction] call BTC_fnc_mil_create_static;
         };
     };
 
     private _destroy_taskID = _taskID + "dt" + str _i;
     _tasksID pushBack _destroy_taskID;
-    [[_destroy_taskID, _taskID], 37, [_box, objNull] select (btc_p_spect), _composition_station select 0 select 0, false, false] call btc_fnc_task_create;
+    [[_destroy_taskID, _taskID], 37, [_box, objNull] select (btc_p_spect), _composition_station select 0 select 0, false, false] call BTC_fnc_task_create;
 
     [_box, "HandleDamage", {
         params [
@@ -122,10 +122,10 @@ waitUntil {sleep 5;(
     !(false in (_tasksID apply {_x call BIS_fnc_taskCompleted}))
 )};
 
-[[], _composition] call btc_fnc_delete;
+[[], _composition] call BTC_fnc_delete;
 
 if (_taskID call BIS_fnc_taskState isEqualTo "CANCELED") exitWith {};
 
-80 call btc_fnc_rep_change;
+80 call BTC_fnc_rep_change;
 
-[_taskID, "SUCCEEDED"] call btc_fnc_task_setState;
+[_taskID, "SUCCEEDED"] call BTC_fnc_task_setState;

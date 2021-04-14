@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_log_create_apply
+Function: BTC_fnc_log_create_apply
 
 Description:
     Fill me when you edit me !
@@ -11,7 +11,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_log_create_apply;
+        _result = [] call BTC_fnc_log_create_apply;
     (end)
 
 Author:
@@ -34,7 +34,7 @@ if (_class isEqualTo btc_supplies_cargo) then {
         [selectRandom _food, selectRandom _water] apply {[_x, "", [[[], []], [[], []], [[], []]]]},
         [[[], []], [[], []], [[], []]],
         [vectorDir btc_create_object_point, vectorUp btc_create_object_point]
-    ]] remoteExecCall ["btc_fnc_db_loadObjectStatus", 2];
+    ]] remoteExecCall ["BTC_fnc_db_loadObjectStatus", 2];
 } else {
-    [_class] remoteExecCall ["btc_fnc_log_create_s", 2];
+    [_class] remoteExecCall ["BTC_fnc_log_create_s", 2];
 };

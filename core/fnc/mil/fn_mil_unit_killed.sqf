@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_mil_unit_killed
+Function: BTC_fnc_mil_unit_killed
 
 Description:
     Fill me when you edit me !
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_mil_unit_killed;
+        _result = [] call BTC_fnc_mil_unit_killed;
     (end)
 
 Author:
@@ -29,7 +29,7 @@ params [
 private _killer = _unit getVariable ["ace_medical_lastDamageSource", _killer];
 
 if (!isServer) exitWith {
-    [_unit, _killer] remoteExecCall ["btc_fnc_mil_unit_killed", 2];
+    [_unit, _killer] remoteExecCall ["BTC_fnc_mil_unit_killed", 2];
 };
 
 if (random 100 > btc_info_intel_chance) then {
@@ -38,9 +38,9 @@ if (random 100 > btc_info_intel_chance) then {
 
 if (isPlayer _killer) then {
     if (isServer) then {
-        btc_rep_bonus_mil_killed call btc_fnc_rep_change;
+        btc_rep_bonus_mil_killed call BTC_fnc_rep_change;
     } else {
-        btc_rep_bonus_mil_killed remoteExecCall ["btc_fnc_rep_change", 2];
+        btc_rep_bonus_mil_killed remoteExecCall ["BTC_fnc_rep_change", 2];
     };
 };
 

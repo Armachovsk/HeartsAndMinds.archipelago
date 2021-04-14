@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_db_save
+Function: BTC_fnc_db_save
 
 Description:
     Save the current game into profileNamespace.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [] spawn btc_fnc_db_save;
+        [] spawn BTC_fnc_db_save;
     (end)
 
 Author:
@@ -25,25 +25,25 @@ params [
 ];
 
 if (btc_debug) then {
-    ["...1", __FILE__, [btc_debug, false, true]] call btc_fnc_debug_message;
+    ["...1", __FILE__, [btc_debug, false, true]] call BTC_fnc_debug_message;
 };
 
-[8] remoteExecCall ["btc_fnc_show_hint", 0];
+[8] remoteExecCall ["BTC_fnc_show_hint", 0];
 
 btc_db_is_saving = true;
 
 {
     if (!isNull _x) then {
-        private _s = [_forEachIndex] spawn btc_fnc_city_de_activate;
+        private _s = [_forEachIndex] spawn BTC_fnc_city_de_activate;
         waitUntil {scriptDone _s};
     };
 } forEach btc_city_all;
 
 if (btc_debug) then {
-    ["...2", __FILE__, [btc_debug, false, true]] call btc_fnc_debug_message;
+    ["...2", __FILE__, [btc_debug, false, true]] call BTC_fnc_debug_message;
 };
 
-[false] call btc_fnc_db_delete;
+[false] call BTC_fnc_db_delete;
 
 //Version
 profileNamespace setVariable [format ["btc_hm_%1_version", _name], btc_version select 1];
@@ -71,7 +71,7 @@ private _cities_status = [];
 
     _cities_status pushBack _city_status;
     if (btc_debug_log) then {
-        [format ["ID %1 - IsOccupied %2", _x getVariable "id", _x getVariable "occupied"], __FILE__, [false]] call btc_fnc_debug_message;
+        [format ["ID %1 - IsOccupied %2", _x getVariable "id", _x getVariable "occupied"], __FILE__, [false]] call BTC_fnc_debug_message;
     };
 } forEach (btc_city_all select {!(isNull _x)});
 profileNamespace setVariable [format ["btc_hm_%1_cities", _name], _cities_status];
@@ -96,7 +96,7 @@ private _array_ho = [];
     } forEach (_x getVariable ["markers", []]);
     _data pushBack _ho_markers;
     if (btc_debug_log) then {
-        [format ["HO %1 DATA %2", _x, _data], __FILE__, [false]] call btc_fnc_debug_message;
+        [format ["HO %1 DATA %2", _x, _data], __FILE__, [false]] call BTC_fnc_debug_message;
     };
     _array_ho pushBack _data;
 } forEach btc_hideouts;
@@ -134,7 +134,7 @@ private _fobs = [];
 } forEach (btc_fobs select 0);
 profileNamespace setVariable [format ["btc_hm_%1_fobs", _name], _fobs];
 
-private _fobs_mob_respawns = [] call btc_fnc_fob_mob_respawns;
+private _fobs_mob_respawns = [] call BTC_fnc_fob_mob_respawns;
 private _mob_fobs = [];
 {
     private _btcRespawn = _x getVariable ["btc_mob_respawn", []];
@@ -166,10 +166,10 @@ private _array_veh = [];
     _data pushBack _cargo;
     private _cont = [getWeaponCargo _x, getMagazineCargo _x, getItemCargo _x];
     _data pushBack _cont;
-    _data append ([_x] call btc_fnc_getVehProperties);
+    _data append ([_x] call BTC_fnc_getVehProperties);
     _array_veh pushBack _data;
     if (btc_debug_log) then {
-        [format ["VEH %1 DATA %2", _x, _data], __FILE__, [false]] call btc_fnc_debug_message;
+        [format ["VEH %1 DATA %2", _x, _data], __FILE__, [false]] call BTC_fnc_debug_message;
     };
 } forEach (btc_vehicles - [objNull]);
 profileNamespace setVariable [format ["btc_hm_%1_vehs", _name], _array_veh];
@@ -177,7 +177,7 @@ profileNamespace setVariable [format ["btc_hm_%1_vehs", _name], _array_veh];
 //Objects status
 private _array_obj = [];
 {
-    private _data = [_x] call btc_fnc_db_saveObjectStatus;
+    private _data = [_x] call BTC_fnc_db_saveObjectStatus;
     if !(_data isEqualTo []) then {
         _array_obj pushBack _data;
     };
@@ -199,8 +199,8 @@ profileNamespace setVariable [format ["btc_hm_%1_markers", _name], _markers_prop
 profileNamespace setVariable [format ["btc_hm_%1_db", _name], true];
 saveProfileNamespace;
 if (btc_debug) then {
-    ["...3", __FILE__, [btc_debug, false, true]] call btc_fnc_debug_message;
+    ["...3", __FILE__, [btc_debug, false, true]] call BTC_fnc_debug_message;
 };
-[9] remoteExecCall ["btc_fnc_show_hint", 0];
+[9] remoteExecCall ["BTC_fnc_show_hint", 0];
 
 btc_db_is_saving = false;

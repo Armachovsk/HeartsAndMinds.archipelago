@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_info_cachePicture
+Function: BTC_fnc_info_cachePicture
 
 Description:
     Add picture to the diary.
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        [typeOf player, 0] call btc_fnc_info_cachePicture;
+        [typeOf player, 0] call BTC_fnc_info_cachePicture;
     (end)
 
 Author:
@@ -42,6 +42,6 @@ player createDiaryRecord [
     "btc_diarylog",
     [
         format [localize "STR_BTC_HAM_CON_INFO_PICTURE", _cache_n],
-        (localize _string) + ([_classname_object] call btc_fnc_typeOfPreview)
+        (localize _string) + ([_classname_object] call BTC_fnc_typeOfPreview)
     ]
 ];

@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_mil_getBuilding
+Function: BTC_fnc_mil_getBuilding
 
 Description:
     Fill me when you edit me !
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_mil_getBuilding;
+        _result = [] call BTC_fnc_mil_getBuilding;
     (end)
 
 Author:
@@ -27,10 +27,10 @@ params [
 ];
 
 private _structure = objNull;
-private _structures = [_rpos, 70] call btc_fnc_mil_getStructures;
+private _structures = [_rpos, 70] call BTC_fnc_mil_getStructures;
 
 if (_structures isEqualTo []) then {
-    private _houses = [_rpos, 50] call btc_fnc_getHouses;
+    private _houses = [_rpos, 50] call BTC_fnc_getHouses;
     if (_houses isEqualTo []) then {
         _structure = "";
     } else {

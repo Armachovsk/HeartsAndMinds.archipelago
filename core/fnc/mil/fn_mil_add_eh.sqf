@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_mil_add_eh
+Function: BTC_fnc_mil_add_eh
 
 Description:
     Add EH to military unit.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [cursorObject] call btc_fnc_mil_add_eh;
+        [cursorObject] call BTC_fnc_mil_add_eh;
     (end)
 
 Author:
@@ -24,6 +24,6 @@ params [
     ["_unit", objNull, [objNull]]
 ];
 
-[_unit, "Killed", "btc_fnc_mil_unit_killed"] call btc_fnc_eh_persistOnLocalityChange;
+[_unit, "Killed", "BTC_fnc_mil_unit_killed"] call BTC_fnc_eh_persistOnLocalityChange;
 
 true

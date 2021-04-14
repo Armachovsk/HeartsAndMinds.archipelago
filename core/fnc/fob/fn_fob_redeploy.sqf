@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_fob_redeploy
+Function: BTC_fnc_fob_redeploy
 
 Description:
     Show user interface of the map with FOB position.
@@ -11,7 +11,7 @@ Returns:
 
 Examples:
     (begin example)
-        [] spawn btc_fnc_fob_redeploy;
+        [] spawn BTC_fnc_fob_redeploy;
     (end)
 
 Author:
@@ -20,7 +20,7 @@ Author:
 ---------------------------------------------------------------------------- */
 
 btc_int_ask_data = nil;
-["btc_fobs"] remoteExecCall ["btc_fnc_int_ask_var", 2];
+["btc_fobs"] remoteExecCall ["BTC_fnc_int_ask_var", 2];
 
 waitUntil {!(isNil "btc_int_ask_data")};
 
@@ -28,7 +28,7 @@ private _fobs_marker = [];
 private _fobs_markerText = [];
 private _fobs_structure = [];
 private _fobs_texts = [];
-private _fobs_mob_respawns = [] call btc_fnc_fob_mob_respawns;
+private _fobs_mob_respawns = [] call BTC_fnc_fob_mob_respawns;
 {
     private _structure = (btc_int_ask_data select 1) select _forEachIndex;
     if ((_x in allMapMarkers) || !(isNull _structure) && (_structure inArea [_structure getVariable ["btc_fob_rallypointPos", [0, 0]], 1, 1, 0, false])) then {
@@ -96,7 +96,7 @@ private _EHid = ["btc_respawn", {
     if !(_ticket isEqualTo -1) then {
         _ticket = _ticket - 1;
         if (_ticket <= 0) then {
-            [_structure, objNull, objNull, true, true] remoteExecCall ["btc_fnc_fob_killed", 2];
+            [_structure, objNull, objNull, true, true] remoteExecCall ["BTC_fnc_fob_killed", 2];
         } else {
             _structure setVariable ["btc_tickets", _ticket, true];
         };
@@ -162,7 +162,7 @@ private _display = [
     _simul,
     localize "$STR_BTC_HAM_O_FOB_REDEPLOY_LABEL",
     true
-] call btc_fnc_strategicMapOpen;
+] call BTC_fnc_strategicMapOpen;
 
 _display displayaddeventhandler [
     "unload",

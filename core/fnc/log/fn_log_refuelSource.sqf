@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_log_refuelSource
+Function: BTC_fnc_log_refuelSource
 
 Description:
     Refuel a fuel source.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [] call btc_fnc_log_refuelSource;
+        [] call BTC_fnc_log_refuelSource;
     (end)
 
 Author:

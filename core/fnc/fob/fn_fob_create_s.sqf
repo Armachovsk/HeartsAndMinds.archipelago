@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_fob_create_s
+Function: BTC_fnc_fob_create_s
 
 Description:
    Create the FOB.
@@ -18,7 +18,7 @@ Returns:
 
 Examples:
     (begin example)
-        [getPos player, random 360, "My FOB"] call btc_fnc_fob_create_s;
+        [getPos player, random 360, "My FOB"] call BTC_fnc_fob_create_s;
     (end)
 
 Author:
@@ -47,8 +47,8 @@ _marker setMarkerText _FOB_name;
 _marker setMarkerColor "ColorBlue";
 _marker setMarkerShape "ICON";
 
-[_struc, _flag, _marker] call btc_fnc_fob_init;
+[_struc, _flag, _marker] call BTC_fnc_fob_init;
 
-_struc addEventHandler ["Killed", btc_fnc_fob_killed];
+_struc addEventHandler ["Killed", BTC_fnc_fob_killed];
 
 [_marker, _struc, _flag]

@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_info_ask_reputation
+Function: BTC_fnc_info_ask_reputation
 
 Description:
     Fill me when you edit me !
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_info_ask_reputation;
+        _result = [] call BTC_fnc_info_ask_reputation;
     (end)
 
 Author:
@@ -25,11 +25,11 @@ params [
 ];
 
 if !(player getVariable ["interpreter", false]) exitWith {
-    [name _man, localize "STR_BTC_HAM_CON_INFO_ASKREP_NOINTER"] call btc_fnc_showSubtitle;
+    [name _man, localize "STR_BTC_HAM_CON_INFO_ASKREP_NOINTER"] call BTC_fnc_showSubtitle;
 };
 
 btc_int_ask_data = nil;
-["btc_global_reputation"] remoteExecCall ["btc_fnc_int_ask_var", 2];
+["btc_global_reputation"] remoteExecCall ["BTC_fnc_int_ask_var", 2];
 
 waitUntil {!(isNil "btc_int_ask_data")};
 
@@ -38,7 +38,7 @@ private _rep = btc_int_ask_data;
 private _ho_left = "";
 if ((round random 1) isEqualTo 1) then {
     btc_int_ask_data = nil;
-    [8] remoteExecCall ["btc_fnc_int_ask_var", 2];
+    [8] remoteExecCall ["BTC_fnc_int_ask_var", 2];
 
     waitUntil {!(isNil "btc_int_ask_data")};
 
@@ -58,4 +58,4 @@ private _text = selectRandom [
     localize "STR_BTC_HAM_CON_INFO_ASKREP_ASK3"
 ];
 
-[name _man, format ["%1 %2. %3", _text, _info_type, _ho_left]] call btc_fnc_showSubtitle;
+[name _man, format ["%1 %2. %3", _text, _info_type, _ho_left]] call BTC_fnc_showSubtitle;

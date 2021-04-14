@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_info_troops
+Function: BTC_fnc_info_troops
 
 Description:
     Fill me when you edit me !
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_info_troops;
+        _result = [] call BTC_fnc_info_troops;
     (end)
 
 Author:
@@ -34,7 +34,7 @@ if (_is_real) then {
         private _man = _array select 0;
         private _dist = (player distance _man) + (random 150) - (random 150);
         private _dir = player getDir _man;
-        private _card = [_dir] call btc_fnc_get_cardinal;
+        private _card = [_dir] call BTC_fnc_get_cardinal;
         _text = format [localize "STR_BTC_HAM_CON_INFO_TROOPS_TRUE", _card, round _dist];
     } else {
         _text = localize "STR_BTC_HAM_CON_INFO_TROOPS_FALSE";
@@ -52,5 +52,5 @@ if (_is_real) then {
 
 if (btc_debug) then {_text = _text + " - " + str _is_real};
 
-[_name, _text] call btc_fnc_showSubtitle;
+[_name, _text] call BTC_fnc_showSubtitle;
 player createDiaryRecord ["btc_diarylog", [str(mapGridPosition player) + " - " + _name, _text]];

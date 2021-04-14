@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_city_trigger_player_side
+Function: BTC_fnc_city_trigger_player_side
 
 Description:
     Create a trigger to detect player presence around a position.
@@ -19,7 +19,7 @@ Returns:
 
 Examples:
     (begin example)
-        [_position, _radius_x, _radius_y, _city, _has_en, _name, _type, _id] call btc_fnc_city_trigger_player_side;
+        [_position, _radius_x, _radius_y, _city, _has_en, _name, _type, _id] call BTC_fnc_city_trigger_player_side;
     (end)
 
 Author:
@@ -41,7 +41,7 @@ params [
 private _trigger = createTrigger ["EmptyDetector", _position];
 _trigger setTriggerArea [_radius_x + _radius_y + btc_city_radius, _radius_x + _radius_y + btc_city_radius, 0, false];
 _trigger setTriggerActivation ["ANYPLAYER", "PRESENT", true];
-_trigger setTriggerStatements [btc_p_trigger, format ["[%1] spawn btc_fnc_city_activate", _id], format ["[%1] call btc_fnc_city_de_activate", _id]];
+_trigger setTriggerStatements [btc_p_trigger, format ["[%1] spawn BTC_fnc_city_activate", _id], format ["[%1] call BTC_fnc_city_de_activate", _id]];
 _city setVariable ["trigger_player_side", _trigger];
 
 if (btc_debug) then {

@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_eh_veh_respawn
+Function: BTC_fnc_eh_veh_respawn
 
 Description:
     Respawn the vehicle passed in parameter.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [cursorObject] call btc_fnc_eh_veh_respawn;
+        [cursorObject] call BTC_fnc_eh_veh_respawn;
     (end)
 
 Author:
@@ -61,9 +61,9 @@ private _data = _vehicle getVariable ["data_respawn", []];
             createVehicleCrew _vehicle;
         };
 
-        [_vehicle, _customization, _isMedicalVehicle, _isRepairVehicle, _fuelSource, _pylons, _isContaminated, _supplyVehicle] call btc_fnc_setVehProperties;
+        [_vehicle, _customization, _isMedicalVehicle, _isRepairVehicle, _fuelSource, _pylons, _isContaminated, _supplyVehicle] call BTC_fnc_setVehProperties;
 
-        [_vehicle, _time] call btc_fnc_eh_veh_add_respawn;
+        [_vehicle, _time] call BTC_fnc_eh_veh_add_respawn;
 
         ["btc_veh_spawned", [_vehicle]] call CBA_fnc_globalEvent;
     }, _data, 1] call CBA_fnc_waitAndExecute;

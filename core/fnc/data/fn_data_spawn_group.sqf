@@ -1,9 +1,9 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_data_spawn_group
+Function: BTC_fnc_data_spawn_group
 
 Description:
-    Create group previously saved by btc_fnc_data_get_group.
+    Create group previously saved by BTC_fnc_data_get_group.
 
 Parameters:
     _type - Type of group (3: in house group, 4: civilian with weapon, 5: suicider ...). [Number]
@@ -20,7 +20,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_data_spawn_group;
+        _result = [] call BTC_fnc_data_spawn_group;
     (end)
 
 Author:
@@ -48,7 +48,7 @@ for "_i" from 0 to (count _array_pos - 1) do {
     _u setDamage (_array_dam select _i);
 
     if (btc_debug_log) then {
-        [format ["pos %1 in %2 ", _array_pos select _i, getPos _u], __FILE__, [false]] call btc_fnc_debug_message;
+        [format ["pos %1 in %2 ", _array_pos select _i, getPos _u], __FILE__, [false]] call BTC_fnc_debug_message;
     };
 };
 
@@ -98,10 +98,10 @@ if !(_side isEqualTo civilian && {vehicle leader _group isEqualTo leader _group}
 };
 if (_type isEqualTo 3) then {
     [_group] call CBA_fnc_clearWaypoints;
-    [_group, nearestObject [(units _group) select 0, _array_veh]] call btc_fnc_house_addWP;
+    [_group, nearestObject [(units _group) select 0, _array_veh]] call BTC_fnc_house_addWP;
     _group setVariable ["btc_inHouse", _array_veh];
 };
-if (_type isEqualTo 4) then {[[0, 0, 0], 0, units _group] call btc_fnc_civ_get_weapons;};
+if (_type isEqualTo 4) then {[[0, 0, 0], 0, units _group] call BTC_fnc_civ_get_weapons;};
 if (_type isEqualTo 5) then {
     _group spawn {
         _this setVariable ["suicider", true];
@@ -116,25 +116,25 @@ if (_type isEqualTo 5) then {
             sleep 5;
             if !((getPos _suicider nearEntities ["SoldierWB", 25]) isEqualTo []) then {
                 _cond = true;
-                _suicider spawn btc_fnc_ied_suicider_active
+                _suicider spawn BTC_fnc_ied_suicider_active
             };
         };
     };
 };
 if (_type isEqualTo 6) then {
     [_group] call CBA_fnc_clearWaypoints;
-    [_group, _array_veh select 0] call btc_fnc_civ_addWP;
+    [_group, _array_veh select 0] call BTC_fnc_civ_addWP;
     _group setVariable ["btc_data_inhouse", _array_veh];
 };
 if (_type isEqualTo 7) then {
-    [objNull, 100, _array_pos select 0, _group] call btc_fnc_ied_drone_create;
+    [objNull, 100, _array_pos select 0, _group] call BTC_fnc_ied_drone_create;
 };
 
 _group setBehaviour (_behaviour select 0);
 _group setCombatMode (_behaviour select 1);
 _group setFormation (_behaviour select 2);
 
-if (_side isEqualTo btc_enemy_side) then {[_group] call btc_fnc_mil_unit_create;};
-if (_side isEqualTo civilian) then {[_group] call btc_fnc_civ_unit_create};
+if (_side isEqualTo btc_enemy_side) then {[_group] call BTC_fnc_mil_unit_create;};
+if (_side isEqualTo civilian) then {[_group] call BTC_fnc_civ_unit_create};
 
 [leader _group, _type]

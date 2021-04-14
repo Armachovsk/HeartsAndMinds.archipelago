@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_db_add_veh
+Function: BTC_fnc_db_add_veh
 
 Description:
     Add vehicle to the wreck system.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        [cursorObject] call btc_fnc_db_add_veh;
+        [cursorObject] call BTC_fnc_db_add_veh;
     (end)
 
 Author:
@@ -27,7 +27,7 @@ params [
 ];
 
 if !(isServer) exitWith {
-    _veh remoteExecCall ["btc_fnc_db_add_veh", 2];
+    _veh remoteExecCall ["BTC_fnc_db_add_veh", 2];
 };
 
 btc_vehicles pushBackUnique _veh;
@@ -38,7 +38,7 @@ _veh addMPEventHandler ["MPKilled", {
         {_unit getVariable ["btc_killed", true]} // https://feedback.bistudio.com/T149510
     ) then {
         _unit setVariable ["btc_killed", false];
-        _this call btc_fnc_eh_veh_killed;
+        _this call BTC_fnc_eh_veh_killed;
     };
 }];
 if ((isNumber (configfile >> "CfgVehicles" >> typeOf _veh >> "ace_fastroping_enabled")) && !(typeOf _veh isEqualTo "RHS_UH1Y_d")) then {
@@ -47,7 +47,7 @@ if ((isNumber (configfile >> "CfgVehicles" >> typeOf _veh >> "ace_fastroping_ena
 
 if (_p_chem) then {
     _veh addEventHandler ["GetIn", {
-        [_this select 0, _this select 2] call btc_fnc_chem_propagate;
+        [_this select 0, _this select 2] call BTC_fnc_chem_propagate;
         _this
     }];
 };

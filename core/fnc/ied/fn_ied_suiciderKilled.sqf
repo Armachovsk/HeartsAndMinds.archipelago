@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_ied_suiciderKilled
+Function: BTC_fnc_ied_suiciderKilled
 
 Description:
     Remove the the suicider flag to the corresponding city.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [0] call btc_fnc_ied_suiciderKilled;
+        [0] call BTC_fnc_ied_suiciderKilled;
     (end)
 
 Author:
@@ -25,11 +25,11 @@ params [
 ];
 
 if (btc_debug || btc_debug_log) then {
-    [format ["Suicider killed in city %1", _id], __FILE__, [btc_debug, btc_debug_log]] call btc_fnc_debug_message;
+    [format ["Suicider killed in city %1", _id], __FILE__, [btc_debug, btc_debug_log]] call BTC_fnc_debug_message;
 };
 
 if (!isServer) exitWith {
-    _this remoteExecCall ["btc_fnc_ied_suiciderKilled", 2];
+    _this remoteExecCall ["BTC_fnc_ied_suiciderKilled", 2];
 };
 
 private _city = btc_city_all select _id;

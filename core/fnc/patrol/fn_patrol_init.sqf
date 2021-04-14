@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_patrol_init
+Function: BTC_fnc_patrol_init
 
 Description:
     Initialise patrol between two city.
@@ -15,7 +15,7 @@ Returns:
 
 Examples:
     (begin example)
-        [group cursorTarget, [selectRandom btc_city_all, selectRandom btc_city_all]] call btc_fnc_patrol_init;
+        [group cursorTarget, [selectRandom btc_city_all, selectRandom btc_city_all]] call BTC_fnc_patrol_init;
     (end)
 
 Author:
@@ -34,7 +34,7 @@ _cities params [
     ["_active_city", objNull, [objNull]]
 ];
 
-private _end_city = selectRandom ([[_start_city, _active_city], _area, _isBoat] call btc_fnc_patrol_usefulCity);
+private _end_city = selectRandom ([[_start_city, _active_city], _area, _isBoat] call BTC_fnc_patrol_usefulCity);
 
 private _pos = getPos _end_city;
 if (_isBoat) then {
@@ -45,12 +45,12 @@ if (_isBoat) then {
 private _start_cityID = _start_city getVariable ["id", 0];
 private _active_cityID = _active_city getVariable ["id", 0];
 private _end_cityID = _end_city getVariable ["id", 0];
-private _waypointStatements = format ["[group this, %1, %2, %3, %4] call btc_fnc_patrol_WPCheck;", _area, _pos, [_start_cityID, _active_cityID, _end_cityID], _isBoat];
+private _waypointStatements = format ["[group this, %1, %2, %3, %4] call BTC_fnc_patrol_WPCheck;", _area, _pos, [_start_cityID, _active_cityID, _end_cityID], _isBoat];
 
-[_group, _pos, _waypointStatements] call btc_fnc_patrol_addWP;
+[_group, _pos, _waypointStatements] call BTC_fnc_patrol_addWP;
 
 if (btc_debug_log) then {
     if (!isNil {_group getVariable "btc_patrol_id"}) then {
-        [format ["ID: %1, End city ID: %2", _group getVariable ["btc_patrol_id", "Missing patrol ID"], _end_cityID], __FILE__, [false]] call btc_fnc_debug_message;
+        [format ["ID: %1, End city ID: %2", _group getVariable ["btc_patrol_id", "Missing patrol ID"], _end_cityID], __FILE__, [false]] call BTC_fnc_debug_message;
     };
 };

@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_mil_createUnits
+Function: BTC_fnc_mil_createUnits
 
 Description:
     Fill me when you edit me !
@@ -17,7 +17,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_mil_createUnits;
+        _result = [] call BTC_fnc_mil_createUnits;
     (end)
 
 Author:
@@ -48,6 +48,6 @@ for "_i" from 1 to _number do {
         sleep 1;
     };
 };
-[_group] call btc_fnc_mil_unit_create;
+[_group] call BTC_fnc_mil_unit_create;
 
 _group

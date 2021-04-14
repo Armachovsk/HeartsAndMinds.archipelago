@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_patrol_usefulCity
+Function: BTC_fnc_patrol_usefulCity
 
 Description:
     Return useful city based on starting city and activated city by player. Prefer cities in the opposite side of the active city relatively to the starting city.
@@ -15,7 +15,7 @@ Returns:
 
 Examples:
     (begin example)
-        [[selectRandom btc_city_all, selectRandom btc_city_all]] call btc_fnc_patrol_usefulCity;
+        [[selectRandom btc_city_all, selectRandom btc_city_all]] call BTC_fnc_patrol_usefulCity;
     (end)
 
 Author:
@@ -55,7 +55,7 @@ if !(_cities_dirTo isEqualTo []) then {
 
 //Check if end city has been found, if not take the closer city
 if (_cities isEqualTo []) then {
-    _cities = [[_active_city, _useful, false] call btc_fnc_find_closecity];
+    _cities = [[_active_city, _useful, false] call BTC_fnc_find_closecity];
 };
 
 _cities

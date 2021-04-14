@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_road_direction
+Function: BTC_fnc_road_direction
 
 Description:
     Found road direction.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        _direction = [(nearRoads player) select 0] call btc_fnc_road_direction;
+        _direction = [(nearRoads player) select 0] call BTC_fnc_road_direction;
     (end)
 
 Author:

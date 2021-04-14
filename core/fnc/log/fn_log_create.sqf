@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_log_create
+Function: BTC_fnc_log_create
 
 Description:
     Fill me when you edit me !
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_log_create;
+        _result = [] call BTC_fnc_log_create;
     (end)
 
 Author:
@@ -27,7 +27,7 @@ params [
 closeDialog 0;
 
 btc_log_create_obj = _create_obj;
-if ([btc_log_create_obj] call btc_fnc_checkArea) exitWith {};
+if ([btc_log_create_obj] call BTC_fnc_checkArea) exitWith {};
 
 disableSerialization;
 closeDialog 0;
@@ -35,7 +35,7 @@ createDialog "btc_log_dlg_create";
 
 waitUntil {dialog};
 
-call btc_fnc_log_create_load;
+call BTC_fnc_log_create_load;
 
 private _class = lbData [72, lbCurSel 72];
 private _selected = _class;

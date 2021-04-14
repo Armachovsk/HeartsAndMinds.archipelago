@@ -7,7 +7,7 @@ if (isNil "_globalVehicle") exitWith {false};
 [_globalVehicle] call SPEC_fnc_cbps_deploy_handleVehicleSpawn;
 
 if (isServer) then {
-    [_globalVehicle, 10] call btc_fnc_eh_veh_add_respawn;
+    [_globalVehicle, 10] call BTC_fnc_eh_veh_add_respawn;
 };
 
 ["btc_veh_spawned", {

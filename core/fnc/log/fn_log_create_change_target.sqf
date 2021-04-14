@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_log_create_change_target
+Function: BTC_fnc_log_create_change_target
 
 Description:
     Fill me when you edit me !
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_log_create_change_target;
+        _result = [] call BTC_fnc_log_create_change_target;
     (end)
 
 Author:

@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_db_loadCargo
+Function: BTC_fnc_db_loadCargo
 
 Description:
     Load ACE cargo and inventory of a vehicle/container.
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_db_loadCargo;
+        _result = [] call BTC_fnc_db_loadCargo;
     (end)
 
 Author:
@@ -30,17 +30,17 @@ Author:
         _x params ["_type", "_magClass", "_cargo_obj", ["_isContaminated", false, [false]]];
 
         private _l = createVehicle [_type, getPosATL _obj, [], 0, "CAN_COLLIDE"];
-        [_l] call btc_fnc_log_init;
+        [_l] call BTC_fnc_log_init;
         private _isloaded = [_l, _obj] call ace_cargo_fnc_loadItem;
         if (btc_debug_log) then {
-            [format ["Object loaded: %1 in veh/container %2 IsLoaded: %3", _l, _obj, _isloaded], __FILE__, [false]] call btc_fnc_debug_message;
+            [format ["Object loaded: %1 in veh/container %2 IsLoaded: %3", _l, _obj, _isloaded], __FILE__, [false]] call BTC_fnc_debug_message;
         };
 
         if (_magClass != "") then {
             _l setVariable ["ace_rearm_magazineClass", _magClass, true]
         };
 
-        [_l, _cargo_obj] call btc_fnc_log_setCargo;
+        [_l, _cargo_obj] call BTC_fnc_log_setCargo;
 
         if (_isContaminated) then {
             btc_chem_contaminated pushBack _l;
@@ -49,5 +49,5 @@ Author:
     } forEach _cargo;
 
     //set inventory content for weapons, magazines and items
-    [_obj, _inventory] call btc_fnc_log_setCargo;
+    [_obj, _inventory] call BTC_fnc_log_setCargo;
 }, _this] call CBA_fnc_waitAndExecute;

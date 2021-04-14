@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_arsenal_garage
+Function: BTC_fnc_arsenal_garage
 
 Description:
     Open virtual Arsenal garage on object position.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [btc_create_object_point] call btc_fnc_arsenal_garage;
+        [btc_create_object_point] call BTC_fnc_arsenal_garage;
     (end)
 
 Author:
@@ -24,7 +24,7 @@ params [
     ["_current_garage", objNull, [objNull]]
 ];
 
-if ([_current_garage] call btc_fnc_checkArea) exitWith {};
+if ([_current_garage] call BTC_fnc_checkArea) exitWith {};
 
 disableSerialization;
 uiNamespace setVariable ["current_garage", _current_garage];
@@ -55,7 +55,7 @@ with uiNamespace do {
         private _customization = [_x] call BIS_fnc_getVehicleCustomization;
 
         _x call CBA_fnc_deleteEntity;
-        [_type, _pos, _dir, _customization] remoteExecCall ["btc_fnc_log_createVehicle", 2];
-        [_type] remoteExecCall ["btc_fnc_eh_veh_init", -2];
+        [_type, _pos, _dir, _customization] remoteExecCall ["BTC_fnc_log_createVehicle", 2];
+        [_type] remoteExecCall ["BTC_fnc_eh_veh_init", -2];
     } forEach _veh_list;
 };

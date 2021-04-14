@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_civ_create_patrol
+Function: BTC_fnc_civ_create_patrol
 
 Description:
     Create a civilian patrol around a city in a defined area.
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        _isCreated = [_active_city] call btc_fnc_civ_create_patrol;
+        _isCreated = [_active_city] call BTC_fnc_civ_create_patrol;
     (end)
 
 Author:
@@ -68,21 +68,21 @@ btc_civilian_id = btc_civilian_id - 1;
 (selectRandom btc_civ_type_units) createUnit [_safe_pos, _group, "this moveinDriver _veh; this assignAsDriver _veh;"];
 _veh setVariable ["btc_crews", _group];
 
-[_group] call btc_fnc_civ_unit_create;
+[_group] call BTC_fnc_civ_unit_create;
 
-[_veh, "HandleDamage", "btc_fnc_patrol_disabled"] call btc_fnc_eh_persistOnLocalityChange;
-[_veh, "Fuel", "btc_fnc_patrol_eh"] call btc_fnc_eh_persistOnLocalityChange;
-[_veh, "GetOut", "btc_fnc_patrol_eh"] call btc_fnc_eh_persistOnLocalityChange;
-[_veh, "HandleDamage", "btc_fnc_rep_hd"] call btc_fnc_eh_persistOnLocalityChange;
+[_veh, "HandleDamage", "BTC_fnc_patrol_disabled"] call BTC_fnc_eh_persistOnLocalityChange;
+[_veh, "Fuel", "BTC_fnc_patrol_eh"] call BTC_fnc_eh_persistOnLocalityChange;
+[_veh, "GetOut", "BTC_fnc_patrol_eh"] call BTC_fnc_eh_persistOnLocalityChange;
+[_veh, "HandleDamage", "BTC_fnc_rep_hd"] call BTC_fnc_eh_persistOnLocalityChange;
 if (_p_chem) then {
     _veh addEventHandler ["GetIn", {
-        [_this select 0, _this select 2] call btc_fnc_chem_propagate;
+        [_this select 0, _this select 2] call BTC_fnc_chem_propagate;
         _this
     }];
 };
 
-[_group, [_start_city, _active_city], _area, _pos_isWater] call btc_fnc_patrol_init;
+[_group, [_start_city, _active_city], _area, _pos_isWater] call BTC_fnc_patrol_init;
 
-[[_group]] call btc_fnc_set_groupsOwner;
+[[_group]] call BTC_fnc_set_groupsOwner;
 
 true

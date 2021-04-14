@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_info_give_intel
+Function: BTC_fnc_info_give_intel
 
 Description:
     Give intel to the player.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        _intelType = [player] call btc_fnc_info_give_intel;
+        _intelType = [player] call BTC_fnc_info_give_intel;
     (end)
 
 Author:
@@ -31,19 +31,19 @@ if (btc_hideouts isEqualTo []) then {_intelType = (btc_info_intel_type select 0)
 
 switch (true) do {
     case (_intelType < (btc_info_intel_type select 0)) : { //cache
-        [true] call btc_fnc_info_cache;
+        [true] call BTC_fnc_info_cache;
     };
     case (_intelType > (btc_info_intel_type select 1) && _intelType < 101) : { //both
-        [true] call btc_fnc_info_cache;
-        [] call btc_fnc_info_hideout;
-        [5] remoteExecCall ["btc_fnc_show_hint", _asker];
+        [true] call BTC_fnc_info_cache;
+        [] call BTC_fnc_info_hideout;
+        [5] remoteExecCall ["BTC_fnc_show_hint", _asker];
     };
     case (_intelType > (btc_info_intel_type select 0) && _intelType < (btc_info_intel_type select 1)) : { //hd
-        [] call btc_fnc_info_hideout;
-        [5] remoteExecCall ["btc_fnc_show_hint", _asker];
+        [] call BTC_fnc_info_hideout;
+        [5] remoteExecCall ["BTC_fnc_show_hint", _asker];
     };
     default {
-        [3] remoteExecCall ["btc_fnc_show_hint", _asker];
+        [3] remoteExecCall ["BTC_fnc_show_hint", _asker];
     };
 };
 

@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_show_hint
+Function: BTC_fnc_show_hint
 
 Description:
     Show CBA_fnc_notify.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        [0] call btc_fnc_show_hint;
+        [0] call BTC_fnc_show_hint;
     (end)
 
 Author:

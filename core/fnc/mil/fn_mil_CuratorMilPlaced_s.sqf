@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_mil_CuratorMilPlaced_s
+Function: BTC_fnc_mil_CuratorMilPlaced_s
 
 Description:
     Fill me when you edit me !
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_mil_CuratorMilPlaced_s;
+        _result = [] call BTC_fnc_mil_CuratorMilPlaced_s;
     (end)
 
 Author:
@@ -24,8 +24,8 @@ params [
     ["_unit", objNull, [objNull]]
 ];
 
-[group _unit] call btc_fnc_mil_unit_create;
+[group _unit] call BTC_fnc_mil_unit_create;
 
 if (btc_debug_log) then {
-    [format ["%1", _unit], __FILE__, [false]] call btc_fnc_debug_message;
+    [format ["%1", _unit], __FILE__, [false]] call BTC_fnc_debug_message;
 };

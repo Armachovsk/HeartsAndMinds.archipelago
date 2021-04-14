@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_findsafepos
+Function: BTC_fnc_findsafepos
 
 Description:
     Find safe position.
@@ -16,7 +16,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [getPos player] call btc_fnc_findsafepos;
+        _result = [getPos player] call BTC_fnc_findsafepos;
     (end)
 
 Author:

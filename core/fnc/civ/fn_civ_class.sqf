@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_civ_class
+Function: BTC_fnc_civ_class
 
 Description:
     Return civilian classe names sorted by units, boats and vehicules based on faction name.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        _civilian_classe_names = ["CIV_F"] call btc_fnc_civ_class;
+        _civilian_classe_names = ["CIV_F"] call BTC_fnc_civ_class;
     (end)
 
 Author:

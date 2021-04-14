@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_patrol_disabled
+Function: BTC_fnc_patrol_disabled
 
 Description:
     Delete vehicle disabled due to a high impact.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [veh] call btc_fnc_patrol_disabled;
+        [veh] call BTC_fnc_patrol_disabled;
     (end)
 
 Author:
@@ -27,8 +27,8 @@ params [
 ];
 
 if (_damage > 0.1) then {
-    [_veh, "HandleDamage", "btc_fnc_patrol_disabled", false] call btc_fnc_eh_removePersistOnLocalityChange;
-    [_veh] call btc_fnc_patrol_eh;
+    [_veh, "HandleDamage", "BTC_fnc_patrol_disabled", false] call BTC_fnc_eh_removePersistOnLocalityChange;
+    [_veh] call BTC_fnc_patrol_eh;
 };
 
 _damage

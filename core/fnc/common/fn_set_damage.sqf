@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_set_damage
+Function: BTC_fnc_set_damage
 
 Description:
     Set ACE damage.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [player] call btc_fnc_set_damage;
+        [player] call BTC_fnc_set_damage;
     (end)
 
 Author:
@@ -46,4 +46,4 @@ for "_i" from 0 to (1 + floor random 2) do {
     sleep 1;
 };
 
-if (_unit call ace_medical_status_fnc_isInStableCondition) exitWith {[_unit] call btc_fnc_set_damage;};
+if (_unit call ace_medical_status_fnc_isInStableCondition) exitWith {[_unit] call BTC_fnc_set_damage;};

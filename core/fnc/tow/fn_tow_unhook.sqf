@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_tow_unhook
+Function: BTC_fnc_tow_unhook
 
 Description:
     Unhook the current tower/towed vehicle.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [cursorObject] spawn btc_fnc_tow_unhook;
+        [cursorObject] spawn BTC_fnc_tow_unhook;
     (end)
 
 Author:
@@ -25,7 +25,7 @@ params [
 ];
 
 btc_int_ask_data = nil;
-[4, _veh] remoteExecCall ["btc_fnc_int_ask_var", 2];
+[4, _veh] remoteExecCall ["BTC_fnc_int_ask_var", 2];
 
 waitUntil {!(isNil "btc_int_ask_data")};
 

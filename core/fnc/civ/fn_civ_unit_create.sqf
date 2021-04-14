@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_civ_unit_create
+Function: BTC_fnc_civ_unit_create
 
 Description:
     Initialize civilian by adding eventhandlers.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [_group] call btc_fnc_civ_unit_create;
+        [_group] call BTC_fnc_civ_unit_create;
     (end)
 
 Author:
@@ -27,5 +27,5 @@ params [
 {
     _x setVariable ["btc_init", true];
 
-    _x call btc_fnc_rep_add_eh;
+    _x call BTC_fnc_rep_add_eh;
 } forEach (units _group select {!(_x getVariable ["btc_init", false])});

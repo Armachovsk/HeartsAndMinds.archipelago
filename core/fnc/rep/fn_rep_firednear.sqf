@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_rep_firednear
+Function: BTC_fnc_rep_firednear
 
 Description:
     Detect if player is firing. Then add a random panic animation. If player fire in direction of a civilian without enemies around, punish him by applying reputation effect and reduce reputation.
@@ -19,7 +19,7 @@ Returns:
 
 Examples:
     (begin example)
-        [cursorObject, objNull, player distance cursorObject, "", "", "", "", player] call btc_fnc_rep_firednear;
+        [cursorObject, objNull, player distance cursorObject, "", "", "", "", player] call BTC_fnc_rep_firednear;
     (end)
 
 Author:
@@ -41,7 +41,7 @@ params [
 if (_ammo isKindOf "SmokeShell") exitWith {};
 
 //Remove the eventHandler to prevent spamming
-[_civ, "FiredNear", "btc_fnc_rep_firednear"] call btc_fnc_eh_removePersistOnLocalityChange;
+[_civ, "FiredNear", "BTC_fnc_rep_firednear"] call BTC_fnc_eh_removePersistOnLocalityChange;
 
 if (!(side _civ isEqualTo civilian) || (random 3 < 1)) exitWith {};
 
@@ -50,11 +50,11 @@ if (!(side _civ isEqualTo civilian) || (random 3 < 1)) exitWith {};
 if (side _gunner isEqualTo btc_player_side) then {
     if ((_gunner findNearestEnemy getPos _civ) distance _civ > 300)  then {
         if (abs((_gunner getDir _civ) - getDir _gunner) < 300/_distance) then {
-            btc_rep_malus_civ_firenear call btc_fnc_rep_change;
-            [getPos _civ] call btc_fnc_rep_eh_effects;
+            btc_rep_malus_civ_firenear call BTC_fnc_rep_change;
+            [getPos _civ] call BTC_fnc_rep_eh_effects;
 
             if (btc_debug_log) then {
-                [format ["GREP %1 THIS = %2", btc_global_reputation, _this], __FILE__, [false]] call btc_fnc_debug_message;
+                [format ["GREP %1 THIS = %2", btc_global_reputation, _this], __FILE__, [false]] call BTC_fnc_debug_message;
             };
         };
     };

@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_patrol_eh_remove
+Function: BTC_fnc_patrol_eh_remove
 
 Description:
     Remove events.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        [cursorTarget] call btc_fnc_patrol_eh_remove;
+        [cursorTarget] call BTC_fnc_patrol_eh_remove;
     (end)
 
 Author:
@@ -25,7 +25,7 @@ params [
     ["_veh", objNull, [objNull]]
 ];
 
-[_veh, "Fuel", "btc_fnc_patrol_eh"] call btc_fnc_eh_removePersistOnLocalityChange;
-[_veh, "GetOut", "btc_fnc_patrol_eh"] call btc_fnc_eh_removePersistOnLocalityChange;
-[_veh, "HandleDamage", "btc_fnc_patrol_disabled"] remoteExecCall ["btc_fnc_eh_removePersistOnLocalityChange", _veh];
-[_veh, "HandleDamage", "btc_fnc_rep_hd"] remoteExecCall ["btc_fnc_eh_removePersistOnLocalityChange", _veh];
+[_veh, "Fuel", "BTC_fnc_patrol_eh"] call BTC_fnc_eh_removePersistOnLocalityChange;
+[_veh, "GetOut", "BTC_fnc_patrol_eh"] call BTC_fnc_eh_removePersistOnLocalityChange;
+[_veh, "HandleDamage", "BTC_fnc_patrol_disabled"] remoteExecCall ["BTC_fnc_eh_removePersistOnLocalityChange", _veh];
+[_veh, "HandleDamage", "BTC_fnc_rep_hd"] remoteExecCall ["BTC_fnc_eh_removePersistOnLocalityChange", _veh];

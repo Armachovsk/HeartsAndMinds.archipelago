@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_ied_checkLoop
+Function: BTC_fnc_ied_checkLoop
 
 Description:
     Loop over IED and check if player is around. If yes, trigger the explosion.
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-       [_city, _ieds, _ieds_check] call btc_fnc_ied_checkLoop;
+       [_city, _ieds, _ieds_check] call BTC_fnc_ied_checkLoop;
     (end)
 
 Author:
@@ -41,14 +41,14 @@ Author:
                             speed _x > 5
                         }
                     }) then {
-                        [_wreck, _ied] spawn btc_fnc_ied_boom;
+                        [_wreck, _ied] spawn BTC_fnc_ied_boom;
                     };
                 } forEach (_ied nearEntities ["allvehicles", 5]);
             } else {
                 _ieds_check = _ieds_check - [_ied];
             };
         } forEach _ieds_check;
-        [_city, _ieds, _ieds_check] call btc_fnc_ied_checkLoop;
+        [_city, _ieds, _ieds_check] call BTC_fnc_ied_checkLoop;
     };
 
     private _data = [];
@@ -66,10 +66,10 @@ Author:
     _city setVariable ["ieds", _data];
 
     if (btc_debug) then {
-        [format ["END CITY ID %1", _city getVariable "id"], __FILE__, [btc_debug, false]] call btc_fnc_debug_message;
+        [format ["END CITY ID %1", _city getVariable "id"], __FILE__, [btc_debug, false]] call BTC_fnc_debug_message;
     };
     if (btc_debug_log) then {
-        [format ["END CITY ID %1", _city getVariable "id"], __FILE__, [false]] call btc_fnc_debug_message;
+        [format ["END CITY ID %1", _city getVariable "id"], __FILE__, [false]] call BTC_fnc_debug_message;
     };
 
 }, _this, 1] call CBA_fnc_waitAndExecute;

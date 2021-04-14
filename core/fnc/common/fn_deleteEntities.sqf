@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_deleteEntities
+Function: BTC_fnc_deleteEntities
 
 Description:
     This deletes objects or groups when they are far away from a player.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [_entities] call btc_fnc_deleteEntities;
+        _result = [_entities] call BTC_fnc_deleteEntities;
     (end)
 
 Author:
@@ -41,6 +41,6 @@ Author:
     };
 
     if !(_entities isEqualTo []) exitWith {
-        _this call btc_fnc_deleteEntities;
+        _this call BTC_fnc_deleteEntities;
     };
 }, _this, 1] call CBA_fnc_waitAndExecute;

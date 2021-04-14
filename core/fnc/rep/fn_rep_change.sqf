@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_rep_change
+Function: BTC_fnc_rep_change
 
 Description:
     Change reputation level.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        [-10] call btc_fnc_rep_change;
+        [-10] call BTC_fnc_rep_change;
     (end)
 
 Author:
@@ -25,7 +25,7 @@ params [
 ];
 
 if (btc_debug_log) then {
-    [format ["GLOBAL %1 - CHANGE %2", btc_global_reputation, _reputation], __FILE__, [false]] call btc_fnc_debug_message;
+    [format ["GLOBAL %1 - CHANGE %2", btc_global_reputation, _reputation], __FILE__, [false]] call BTC_fnc_debug_message;
 };
 btc_global_reputation = btc_global_reputation + _reputation;
 

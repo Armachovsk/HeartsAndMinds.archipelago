@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_civ_addWP
+Function: BTC_fnc_civ_addWP
 
 Description:
     Add waypoints to a group. The group will patrol inside a first house, then 4 waypoints outside are added and finally the group will patrol again in an other house.
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        [_group] call btc_fnc_civ_addWP;
+        [_group] call BTC_fnc_civ_addWP;
     (end)
 
 Author:
@@ -30,21 +30,21 @@ params [
 
 [_group, _pos, -1, "MOVE", "SAFE", "NO CHANGE", "LIMITED"] call CBA_fnc_addWaypoint;
 
-private _houses = [_pos, _radius] call btc_fnc_getHouses;
+private _houses = [_pos, _radius] call BTC_fnc_getHouses;
 if !(_houses isEqualTo []) then {
     private _house = selectRandom _houses;
-    [_group, _house] call btc_fnc_house_addWP_loop;
+    [_group, _house] call BTC_fnc_house_addWP_loop;
     _houses = _houses - [_house];
 };
 
 for "_i" from 1 to 4 do {
-    private _wp_pos = [_pos, _radius] call btc_fnc_randomize_pos;
+    private _wp_pos = [_pos, _radius] call BTC_fnc_randomize_pos;
     [_group, _wp_pos, -1, "MOVE"] call CBA_fnc_addWaypoint;
 };
 
 if !(_houses isEqualTo []) then {
     private _house = selectRandom _houses;
-    [_group, _house] call btc_fnc_house_addWP_loop;
+    [_group, _house] call BTC_fnc_house_addWP_loop;
     _houses = _houses - [_house];
 };
 

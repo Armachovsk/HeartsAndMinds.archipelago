@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_eh_player_respawn
+Function: BTC_fnc_eh_player_respawn
 
 Description:
     Change reputation when player respawn and set position for respawn.
@@ -12,7 +12,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [] call btc_fnc_eh_player_respawn;
+        _result = [] call BTC_fnc_eh_player_respawn;
     (end)
 
 Author:
@@ -28,4 +28,4 @@ player setPosASL _pos;
 player addRating 9999;
 player setCaptive false;
 
-btc_rep_malus_player_respawn remoteExecCall ["btc_fnc_rep_change", 2];
+btc_rep_malus_player_respawn remoteExecCall ["BTC_fnc_rep_change", 2];

@@ -1,18 +1,18 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_civ_CuratorCivPlaced_s
+Function: BTC_fnc_civ_CuratorCivPlaced_s
 
 Description:
-    Apply btc_fnc_civ_unit_create to a unit.
+    Apply BTC_fnc_civ_unit_create to a unit.
 
 Parameters:
-    _unit - Unit where the btc_fnc_civ_unit_create will be apply. [Object]
+    _unit - Unit where the BTC_fnc_civ_unit_create will be apply. [Object]
 
 Returns:
 
 Examples:
     (begin example)
-        [_unit] call btc_fnc_civ_CuratorCivPlaced_s;
+        [_unit] call BTC_fnc_civ_CuratorCivPlaced_s;
     (end)
 
 Author:
@@ -24,8 +24,8 @@ params [
     ["_unit", objNull, [objNull]]
 ];
 
-[group _unit] call btc_fnc_civ_unit_create;
+[group _unit] call BTC_fnc_civ_unit_create;
 
 if (btc_debug_log) then {
-    [format [": %1", _unit], __FILE__, [false]] call btc_fnc_debug_message;
+    [format [": %1", _unit], __FILE__, [false]] call BTC_fnc_debug_message;
 };

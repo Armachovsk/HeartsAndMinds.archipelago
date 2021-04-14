@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_get_cardinal
+Function: BTC_fnc_get_cardinal
 
 Description:
     Get cardinal.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        _result = [100] call btc_fnc_get_cardinal;
+        _result = [100] call BTC_fnc_get_cardinal;
     (end)
 
 Author:

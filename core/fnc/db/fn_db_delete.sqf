@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_db_delete
+Function: BTC_fnc_db_delete
 
 Description:
     Delete database.
@@ -13,7 +13,7 @@ Returns:
 
 Examples:
     (begin example)
-        [] call btc_fnc_db_delete;
+        [] call BTC_fnc_db_delete;
     (end)
 
 Author:
@@ -43,5 +43,5 @@ profileNamespace setVariable [format ["btc_hm_%1_db", _name], nil];
 saveProfileNamespace;
 
 if (_showHint) then {
-    [10] remoteExecCall ["btc_fnc_show_hint", 0];
+    [10] remoteExecCall ["BTC_fnc_show_hint", 0];
 };

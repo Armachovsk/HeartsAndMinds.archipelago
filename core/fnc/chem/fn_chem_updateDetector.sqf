@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_chem_updateDetector
+Function: BTC_fnc_chem_updateDetector
 
 Description:
     Refresh chemical level on the chemical detector screen when it is open.
@@ -14,7 +14,7 @@ Examples:
     (begin example)
         private _ui = uiNamespace getVariable "RscWeaponChemicalDetector";
         private _obj = _ui displayCtrl 101;
-        [_obj] call btc_fnc_chem_updateDetector;
+        [_obj] call BTC_fnc_chem_updateDetector;
     (end)
 
 Author:

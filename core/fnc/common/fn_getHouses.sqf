@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_getHouses
+Function: BTC_fnc_getHouses
 
 Description:
     Get open houses around a position.
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        _useful = [getPos player] call btc_fnc_getHouses;
+        _useful = [getPos player] call BTC_fnc_getHouses;
     (end)
 
 Author:

@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_eh_removePersistOnLocalityChange
+Function: BTC_fnc_eh_removePersistOnLocalityChange
 
 Description:
     Remove persistant event handler from client owner and server.
@@ -16,7 +16,7 @@ Returns:
 
 Examples:
     (begin example)
-        [cursorObject, "Killed", "btc_fnc_rep_killed"] call btc_fnc_eh_removePersistOnLocalityChange;
+        [cursorObject, "Killed", "BTC_fnc_rep_killed"] call BTC_fnc_eh_removePersistOnLocalityChange;
     (end)
 
 Author:
@@ -34,7 +34,7 @@ params [
 private _EH_IDs = _object getVariable [_EH_fnc + _EH_name, []];
 
 if (btc_debug_log) then {
-    [format ["%1: EH = %2, fnc = %3, isR = %4, IDs %5", _object, _EH_name, _EH_fnc, isRemoteExecuted, _EH_IDs], __FILE__, [false]] call btc_fnc_debug_message;
+    [format ["%1: EH = %2, fnc = %3, isR = %4, IDs %5", _object, _EH_name, _EH_fnc, isRemoteExecuted, _EH_IDs], __FILE__, [false]] call BTC_fnc_debug_message;
 };
 
 if !(_EH_IDs isEqualTo []) then {
@@ -50,7 +50,7 @@ if !(_EH_IDs isEqualTo []) then {
 };
 
 if (!isServer && _removeServerSide) then {
-    [_object, _EH_name, _EH_fnc] remoteExecCall ["btc_fnc_eh_removePersistOnLocalityChange", 2];
+    [_object, _EH_name, _EH_fnc] remoteExecCall ["BTC_fnc_eh_removePersistOnLocalityChange", 2];
 };
 
 _EH_IDs

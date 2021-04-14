@@ -1,6 +1,6 @@
 
 /* ----------------------------------------------------------------------------
-Function: btc_fnc_eh_trackItem
+Function: BTC_fnc_eh_trackItem
 
 Description:
     This function detect if an object is deleted with a specific item and fail the task.
@@ -14,7 +14,7 @@ Returns:
 
 Examples:
     (begin example)
-        [] call btc_fnc_eh_trackItem;
+        [] call BTC_fnc_eh_trackItem;
     (end)
 
 Author:
@@ -42,7 +42,7 @@ params [
     };
 
     if (btc_debug) then {
-        [format ["_thisArgs %1, items %2", _thisArgs, items _unit], __FILE__, [btc_debug, true]] call btc_fnc_debug_message;
+        [format ["_thisArgs %1, items %2", _thisArgs, items _unit], __FILE__, [btc_debug, true]] call BTC_fnc_debug_message;
     };
 }, [_dogTag, _taskID]] call CBA_fnc_addBISEventHandler;
 
