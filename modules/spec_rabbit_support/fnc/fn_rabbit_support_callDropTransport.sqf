@@ -32,44 +32,6 @@ if(Call_transport)exitWith{hint "Запрос отклонен! Идет пог�
 				_pos_plane = getPosATL (_C_130 select 0);
 				sleep 1;
 				_jeep setPosATL _pos_plane;
-				// Удаляю инвентарь и добавляю новый
-				clearMagazineCargoGlobal _jeep;
-				clearWeaponCargoGlobal _jeep;
-				clearBackpackCargoGlobal _jeep;
-				clearItemCargoGlobal _jeep;
-				//Создаю контейнер
-				_Ammo_container = "Box_NATO_WpsSpecial_F" createVehicle (_jeep getPos [5, random 360]);
-				_Ammo_container disableCollisionWith _jeep;
-				_Ammo_container attachTo [_jeep, [0, 1.5, -0.3]];
-				// Удаляю инвентарь и добавляю новый
-				clearMagazineCargoGlobal _Ammo_container;
-				clearWeaponCargoGlobal _Ammo_container;
-				clearBackpackCargoGlobal _Ammo_container;
-				clearItemCargoGlobal _Ammo_container;
-
-				_Ammo_container addMagazineCargo ["SSOT_45rnd_PMAG_FDE_318",20];
-				_Ammo_container addMagazineCargo ["SSOT_40rnd_PMAG_FDE_318",20];
-				_Ammo_container addItemCargoGlobal ["HandGrenade", 4];
-				_Ammo_container addItemCargoGlobal ["SmokeShellGreen", 2];
-				_Ammo_container addItemCargoGlobal ["SmokeShellRed", 2];
-				_Ammo_container addItemCargoGlobal ["SmokeShellBlue", 2];
-				_Ammo_container addItemCargoGlobal ["SmokeShell", 2];
-
-				_Ammo_container addItemCargoGlobal ["ACE_bloodIV_250", 4];
-				_Ammo_container addItemCargoGlobal ["ACE_bloodIV_500", 2];
-				_Ammo_container addItemCargoGlobal ["ACE_morphine", 5];
-				_Ammo_container addItemCargoGlobal ["ACE_quikclot", 10];
-				_Ammo_container addItemCargoGlobal ["ACE_elasticBandage", 10];
-				_Ammo_container addItemCargoGlobal ["ACE_fieldDressing", 10];
-				_Ammo_container addItemCargoGlobal ["ACE_packingBandage", 10];
-				_Ammo_container addItemCargoGlobal ["ACE_splint", 5];
-				_Ammo_container addItemCargoGlobal ["ACE_epinephrine", 5];
-				_Ammo_container addItemCargoGlobal ["ACE_WaterBottle", 4];
-				_Ammo_container addItemCargoGlobal ["ACE_MRE_LambCurry", 5];
-				_Ammo_container addItemCargoGlobal ["CE_CableTie", 5];
-				_Ammo_container addItemCargoGlobal ["ACE_bodyBag", 4];
-
-				_Ammo_container addWeaponCargoGlobal ["Tier1_HK416D145_SMR_MFT_Desert", 2];
 				// ждем пока дистанция до земли будет 200 м
 				waitUntil{
 					_pos_jeep = getPosATl _jeep ;
