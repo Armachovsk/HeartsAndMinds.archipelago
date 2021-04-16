@@ -93,6 +93,26 @@ if(Call_help_paradrop)exitWith{hint "Самолет еще не готов дл�
 
 			sleep 1;
 		};
+        // ждем пока дистанция до земли будет 200 м
+        waitUntil{
+            private _centerPos = [];
+            {
+                _centerPos pushBack (getPos _x);
+            } forEach (units _group_desant);
+            private _sortedNumbers = [_centerPos, [], {_x}, "ASCEND"] call BIS_fnc_sortBy;
+            ((_centerPos # 0) # 2) <= 500
+        };
+        {
+            unAssignVehicle _x;
+            _x allowDamage false;
+            moveOut _x;
+            sleep 0.35;
+            _chute = createVehicle ["NonSteerable_Parachute_F", (getPos _x), [], 0, "NONE"];
+            _chute setPos (getPos _x);
+            _x moveinDriver _chute;
+            _x allowDamage true;
+            sleep 0.5;
+        } forEach units _group_desant;
 		// группе ботов охранять зону игрока
  		_wp = _group_desant addWaypoint [_Position_player, 0];
    		_wp setWaypointType "HOLD";
@@ -112,6 +132,9 @@ if(Call_help_paradrop)exitWith{hint "Самолет еще не готов дл�
 			sleep 5;
 			(getPosATL(_C_130 select 0)select 2) >=3000
 		};
+        deleteGroup (_C_130 # 2);
+        {(_C_130 # 0) deleteVehicleCrew _x} forEach (_C_130 # 1);
+        deleteVehicle (_C_130 # 0);
 		sleep 2400;
 		Call_help_paradrop = false;
 		publicVariable "Call_help_paradrop";
