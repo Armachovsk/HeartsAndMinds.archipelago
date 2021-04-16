@@ -1,10 +1,19 @@
+params [
+    ["_position", getPos player, [[]]]
+];
+
 if(isNil "Call_help")then{
 	Call_help = false;
 	publicVariable "Call_help";
 };
+
 if(Call_help)exitWith{hint "Запрос отклонен! Отряд пехоты еще не готов!"};
-[5, [], {
-    0 spawn {
+
+[5, [_position], {
+    (_this # 0) params ["_position"];
+
+    [_position] spawn {
+        params ["_position"];
 
         Call_help = true;
         publicVariable "Call_help";
@@ -13,7 +22,7 @@ if(Call_help)exitWith{hint "Запрос отклонен! Отряд пехот
         _select_player_pos = getPos player;
         player commandChat "Нам нужна немедленная помощь по нашим текущим координатам!";
         // Ищем позицию рядом с игроком
-        _find_safe_pos = [_select_player_pos, 100, 300, 15, 0, 0.3, 0] call BIS_fnc_findSafePos;
+        _find_safe_pos = [_position, 100, 300, 15, 0, 0.3, 0] call BIS_fnc_findSafePos;
         if(isNil "_find_safe_pos")exitWith{hint "Возле вас негде приземлится!"};
         // Создаём невидимую вертолётную площадку, для точной посадки вертолёта
         private _helipad = "Land_HelipadEmpty_F" createVehicle _find_safe_pos;

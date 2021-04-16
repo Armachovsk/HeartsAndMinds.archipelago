@@ -1,20 +1,24 @@
+params [
+    ["_position", getPos player, [[]]]
+];
+
 if(isNil "Call_transport")then{
 	Call_transport = false;
 	publicVariable "Call_transport";
 };
 if(Call_transport)exitWith{hint "Запрос отклонен! Идет погрузка нового транспорта в самолет ожидайте..."};
-[5, [], {
-	0 spawn {
+[5, [_position], {
+    (_this # 0) params ["_position"];
+	[_position] spawn {
+        params ["_position"];
 		Call_transport = true;
 		publicVariable "Call_transport";
 		[[], {systemChat "По вашим координатам выслан борт с танспортом, сброс будет по вашим текущим координатм, ожидайте!"}] remoteExec ["call"];
-		// берем позицию игрока
-		_Position_player = getPos player;
 		//спуним самолет
 		_C_130 = [[0,0,1000], 180, "RHS_C130J_Cargo", WEST] call BIS_fnc_spawnVehicle;
 		{_x setSkill ["courage", 1]} forEach units (_C_130 select 2);
 		// Приказываем самолету двигаться куда надо
-		private _wp_C_130 = (_C_130 select 2) addWaypoint [_Position_player, 0];
+		private _wp_C_130 = (_C_130 select 2) addWaypoint [_position, 0];
 		_wp_C_130 setWaypointType "MOVE";
 		_wp_C_130 setWaypointSpeed "FULL";
 		[(_C_130 select 2), 0] setWaypointCombatMode "BLUE";
@@ -23,7 +27,7 @@ if(Call_transport)exitWith{hint "Запрос отклонен! Идет пог�
 		// жду пока самолет булет над точкой
 		waitUntil{
 			sleep 1;
-			((getPos (_C_130 select 0)) inArea [_Position_player, 150, 150, 0, false])
+			((getPos (_C_130 select 0)) inArea [_position, 150, 150, 0, false])
 		};
 			[_C_130] spawn {
 				params ["_C_130"];
