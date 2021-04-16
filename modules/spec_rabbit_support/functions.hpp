@@ -11,6 +11,10 @@ class rabbit_support {
 
   class rabbit_support_vehicleOnFire {};
 
+  class rabbit_support_onMapClick {};
+
+  class rabbit_support_selectPosition {};
+
   class rabbit_support_postInit {
       postInit = 1;
   };

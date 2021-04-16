@@ -22,12 +22,12 @@ while {STOP_burning_vehicle_car} do {
 					_pos_fire_in_vehicle set [0,0];
 				};
 				// create fire
-				_Fire = "#particlesource" createVehicle [0,0,0]; 
-				_Fire setParticleClass "MediumDestructionFire"; 
+				_Fire = "#particlesource" createVehicle [0,0,0];
+				_Fire setParticleClass "MediumDestructionFire";
 				_Fire attachTo [_vehicle_select, _pos_fire_in_vehicle];
 				// create smoke
-				_Smoke = "#particlesource" createVehicle [0,0,0]; 
-				_Smoke setParticleClass "MediumDestructionSmoke"; 
+				_Smoke = "#particlesource" createVehicle [0,0,0];
+				_Smoke setParticleClass "MediumDestructionSmoke";
 				_Smoke attachTo [_vehicle_select, _pos_fire_in_vehicle];
 				// create light
 				_light = createVehicle ["#lightpoint", [0,0,0], [], 0, "CAN_COLLIDE"];
