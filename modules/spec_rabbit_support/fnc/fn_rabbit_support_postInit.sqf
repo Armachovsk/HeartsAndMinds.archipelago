@@ -1,15 +1,17 @@
+#include "script_component.hpp"
+
 if (!isDedicated && hasInterface) then {
-    private _action_call_help = ["TestAction_call_help","Запросить поддержку","",{[] call SPEC_fnc_rabbit_support_callHelpVdv;},{true}] call ace_interact_menu_fnc_createAction;
-    [player, 1, ["ACE_SelfActions"], _action_call_help] call ace_interact_menu_fnc_addActionToObject;
+    private _actions = [
+        ["TestAction_call_help","Запросить поддержку","z\SSS\addons\main\ui\icons\heli.paa",{ [objNull, player, [player, QUOTE(CALL_HELP_VDV_TYPE)]] call SPEC_fnc_rabbit_support_selectPosition; }],
+        ["TestAction_call_help","Запросить сброс транспорта","\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa",{ [objNull, player, [player, QUOTE(CALL_DROP_TRANSPORT_TYPE)]] call SPEC_fnc_rabbit_support_selectPosition; }],
+        ["TestAction_call_help","Запросить сброс тяжелого транспорта","\a3\Ui_f\data\GUI\Cfg\CommunicationMenu\supplydrop_ca.paa",{ [objNull, player, [player, QUOTE(CALL_DROP_TRANSPORT_V2_TYPE)]] call SPEC_fnc_rabbit_support_selectPosition; }],
+        ["TestAction_call_help","Запросить десантников","z\SSS\addons\main\ui\icons\gunship.paa",{ [objNull, player, [player, QUOTE(CALL_HELP_PARADROP_TYPE)]] call SPEC_fnc_rabbit_support_selectPosition; }]
+    ];
 
-    private _action_call_help_transport = ["TestAction_call_help","Запросить сброс транспорта","",{[] call SPEC_fnc_rabbit_support_callDropTransport;},{true}] call ace_interact_menu_fnc_createAction;
-    [player, 1, ["ACE_SelfActions"], _action_call_help_transport] call ace_interact_menu_fnc_addActionToObject;
-
-    private _action_call_help_transport_V2 = ["TestAction_call_help","Запросить сброс тяжелого транспорта","",{[] call SPEC_fnc_rabbit_support_callDropTransport_V2;},{true}] call ace_interact_menu_fnc_createAction;
-    [player, 1, ["ACE_SelfActions"], _action_call_help_transport_V2] call ace_interact_menu_fnc_addActionToObject;
-
-    private _action_call_help_paradrop = ["TestAction_call_help","Запросить десантников","",{[] call SPEC_fnc_rabbit_support_callHelpParadrop;},{true}] call ace_interact_menu_fnc_createAction;
-    [player, 1, ["ACE_SelfActions"], _action_call_help_paradrop] call ace_interact_menu_fnc_addActionToObject;
+    // Compile actions
+    private _condition = { !([_this # 0, "transport"] call SSS_interaction_fnc_availableEntities isEqualTo []) };
+    private _compiled = _actions apply { [_x # 0, _x # 1, _x # 2, _x # 3, _condition] call ace_interact_menu_fnc_createAction };
+    { [typeOf player, 1, ["ACE_SelfActions","SSS_main"], _x] call ace_interact_menu_fnc_addActionToClass } forEach _compiled;
 };
 
 if (isServer) then {
