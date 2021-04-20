@@ -695,7 +695,6 @@ switch (_p_en) do {
             "SpecLib_i_tk_gue_soldier_lat",
             "SpecLib_i_tk_gue_soldier_akms",
             "SpecLib_i_tk_gue_soldier_akm",
-            "SpecLib_i_tk_gue_soldier_dragon",
             "SpecLib_i_tk_gue_soldier_aa",
             "SpecLib_i_tk_gue_medic",
             "SpecLib_i_tk_gue_soldier_tl",
