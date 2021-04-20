@@ -58,6 +58,11 @@ _fnc_linkedItems = {
     ( configFile >> "CfgGlasses" )
 ];
 
-_virtualCargo = [_virtualWeapons, _virtualMagazines, _virtualItems, _virtualBackpacks];
+private _myMap = createHashMap;
 
-_virtualCargo
+_myMap set ["weapons", _virtualWeapons];
+_myMap set ["magazines", _virtualMagazines];
+_myMap set ["items", _virtualItems];
+_myMap set ["backpacks", _virtualBackpacks];
+
+_myMap

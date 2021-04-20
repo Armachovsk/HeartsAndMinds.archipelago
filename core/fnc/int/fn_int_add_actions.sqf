@@ -143,4 +143,6 @@ if (btc_p_arsenal_Type > 0) then {
     };
 };
 if !(btc_p_arsenal_Restrict isEqualTo 0) then {[btc_gear_object, btc_p_arsenal_Type, btc_p_arsenal_Restrict, btc_custom_arsenal] call BTC_fnc_arsenal_data;};
-if (btc_p_arsenal_Type isEqualTo 5 && btc_p_arsenal_Restrict isEqualTo 4) then {[btc_gear_object, !(btc_p_arsenal_Restrict isEqualTo 1 || btc_p_arsenal_Restrict isEqualTo 4)] call SPEC_fnc_arsenal_addArsenalAction;};
+if (btc_p_arsenal_Type isEqualTo 5 && btc_p_arsenal_Restrict isEqualTo 4) then {
+    ["SPEC_arsenal_02_readyToCreate", [btc_gear_object, !(btc_p_arsenal_Restrict isEqualTo 1 || btc_p_arsenal_Restrict isEqualTo 4)]] call CBA_fnc_globalEvent;
+};
