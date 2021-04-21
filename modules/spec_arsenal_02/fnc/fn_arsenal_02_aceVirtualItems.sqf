@@ -150,13 +150,22 @@ if (_items isEqualType true) then {
                             {getNumber (_configCfgWeapons >> _x >> 'type') != TYPE_BINOCULAR_AND_NVG}): {
                             switch (getNumber (_configCfgWeapons >> _x >> "type")) do {
                                 case TYPE_WEAPON_PRIMARY: {
-                                    (_cargo select 0) select 0 pushBackUnique  ([_x] call bis_fnc_baseWeapon);
+                                    private _weapon = [_x] call bis_fnc_baseWeapon;
+                                    (_weapon isEqualTo _x) && {
+                                        (_cargo select 0) select 0 pushBackUnique ([_x] call bis_fnc_baseWeapon) isNotEqualTo -1
+                                    };
                                 };
                                 case TYPE_WEAPON_HANDGUN: {
-                                    (_cargo select 0) select 2 pushBackUnique ([_x] call bis_fnc_baseWeapon);
+                                    private _weapon = [_x] call bis_fnc_baseWeapon;
+                                    (_weapon isEqualTo _x) && {
+                                        (_cargo select 0) select 2 pushBackUnique ([_x] call bis_fnc_baseWeapon) isNotEqualTo -1
+                                    };
                                 };
                                 case TYPE_WEAPON_SECONDARY: {
-                                    (_cargo select 0) select 1 pushBackUnique ([_x] call bis_fnc_baseWeapon);
+                                    private _weapon = [_x] call bis_fnc_baseWeapon;
+                                    (_weapon isEqualTo _x) && {
+                                        (_cargo select 0) select 1 pushBackUnique ([_x] call bis_fnc_baseWeapon) isNotEqualTo -1
+                                    };
                                 };
                             };
                         };
