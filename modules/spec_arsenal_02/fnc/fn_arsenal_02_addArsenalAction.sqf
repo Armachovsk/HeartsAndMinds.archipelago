@@ -21,6 +21,4 @@ params ["_object","_condition"];
     _object setVariable ["ace_arsenal_virtualItems",_cargo,true];
 
     ["SPEC_arsenal_02_arsenalReady"] call CBA_fnc_globalEvent;
-
-    [{["SPEC_arsenal_02_playerInPosition"] call CBA_fnc_globalEvent;}, [], 10] call CBA_fnc_waitAndExecute;
 }, [_object, _condition]] call CBA_fnc_addEventHandlerArgs;
