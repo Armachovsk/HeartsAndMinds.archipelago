@@ -14,14 +14,13 @@ params ["_object","_condition"];
 
     [[_object, _condition], {
         params ["_object", "_condition"];
+        removeAllActions _object;
         _object addAction [localize "STR_BTC_HAM_ACTION_ARSENAL_OPEN_BIS", {['Open', [_this # 3 # 0, _this # 0]] call bis_fnc_arsenal;}, [_condition]];
-    }] remoteExec ["call", [0, -2] select isMultiplayer, isMultiplayer];
-    [[_object, _condition], {
-        params ["_object", "_condition"];
         _object addAction [localize "STR_BTC_HAM_ACTION_ARSENAL_OPEN_ACE", {[_this # 3 # 0, player] call ace_arsenal_fnc_openBox;}, [_object]];
-    }] remoteExec ["call", [0, -2] select isMultiplayer, isMultiplayer];
-
+    }] remoteExec ["call", [0, -2] select isDedicated, isDedicated];
     _object setVariable ["ace_arsenal_virtualItems",_cargo,true];
 
     ["SPEC_arsenal_02_arsenalReady"] call CBA_fnc_globalEvent;
+
+    [{["SPEC_arsenal_02_playerInPosition"] call CBA_fnc_globalEvent;}, [], 10] call CBA_fnc_waitAndExecute;
 }, [_object, _condition]] call CBA_fnc_addEventHandlerArgs;
