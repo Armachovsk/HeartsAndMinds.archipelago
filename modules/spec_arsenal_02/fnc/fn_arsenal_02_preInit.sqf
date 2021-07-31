@@ -8,9 +8,3 @@ if (isServer) then {
         }, [_virtualCargo, _presets]] call CBA_fnc_addEventHandlerArgs;
     }] call CBA_fnc_addEventHandler;
 };
-
-["SPEC_arsenal_02_arsenalReady", {
-    [{
-        ["SPEC Arsenal v2 Locked & Loaded", "SPEC_arsenal_02_loadgun", 3, 2] call SPEC_fnc_arsenal_02_displayText;
-    }, [], 10] call CBA_fnc_waitAndExecute;
-}] call CBA_fnc_addEventHandler;

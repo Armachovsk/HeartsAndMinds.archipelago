@@ -24,7 +24,8 @@
     "scripts": {
         "build": "gulp",
         "dev": "gulp dev",
-        "clean": "gulp clean"
+        "clean": "gulp clean",
+        "deploy": "scp -r dist/pbo/* me@172.105.93.252:/home/me/.steam/steamapps/common/Arma3Server/mpmissions"
     },
     "devDependencies": {
         "@types/node": "^14.14.37"
