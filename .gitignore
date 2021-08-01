@@ -51,3 +51,5 @@ _build/
 dist/
 node_modules/
 /mission.sqm
+core/def/mission.sqf
+core/def/param.hpp
