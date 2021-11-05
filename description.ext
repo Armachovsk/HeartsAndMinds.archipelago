@@ -1,5 +1,3 @@
-
-loadScreen = "core\img\btc.paa";
 author = "Giallustio, Armachovsk Team";
 onLoadName = $STR_BTC_HAM_DESCR_NAME;
 onLoadMission = $STR_BTC_HAM_DESCR_MISSION;
@@ -7,10 +5,9 @@ enabledebugconsole = 1;
 allowFunctionsRecompile = 1;
 allowFunctionsLog = 1;
 
-#include "core\fnc\common\dlg.hpp"
-#include "core\fnc\fob\dlg.hpp"
-#include "core\fnc\log\dlg.hpp"
-#include "core\fnc\debug\defines.hpp"
+#include "core\def\param.hpp"
+#include "HeartsAndMindsCore\description.inc"
+#include "SpecBased\description.inc"
 
 class RscTitles {
     class Default {
@@ -19,36 +16,18 @@ class RscTitles {
         fadeout = 0;
         duration = 0;
     };
-    #include "core\fnc\lift\rsc.hpp"
-    #include "core\fnc\debug\dlg.hpp"
+    #include "HeartsAndMindsCore\RscTitles.inc"
 };
 
-#include "core\def\param.hpp"
-
-#include "core\fnc\mil\aiskill.hpp"
-
-#include "core\fnc\task\taskTypes.hpp"
-
-#include "modules\KPGUI\KPGUI_defines.hpp"
-#include "modules\KPPLM\ui\KPPLM_dialog.hpp"
-
 class CfgFunctions {
-    #include "core\functions.hpp"
-    // add your own functions below
-    #include "modules\GEMINI\functions.hpp"
-    #include "modules\KPPLM\KPPLM_functions.hpp"
-    class SPEC {
-		#include "modules\spec_arsenal_02\functions.hpp"
-        #include "modules\spec_cbps_deploy\functions.hpp"
-        #include "modules\spec_btc_hm\functions.hpp"
-        #include "modules\spec_rabbit_support\functions.hpp"
-	};
+    #include "HeartsAndMindsCore\CfgFunctions.inc"
+    #include "SpecBased\CfgFunctions.inc"
 };
 
 class CfgSounds
 {
 	sounds[] = {};
-    #include "modules\spec_arsenal_02\sounds.hpp"
+    #include "SpecBased\CfgSounds.inc"
 };
 
 class CfgNotifications
@@ -57,13 +36,13 @@ class CfgNotifications
 
 class Extended_InitPost_EventHandlers {
     class LandVehicle {
-        #include "core\fnc\eh\xeh_InitPost_EH_Vehicle.hpp"
+        #include "HeartsAndMindsCore\Extended_InitPost_EventHandlers\LandVehicle.inc"
     };
     class Air {
-        #include "core\fnc\eh\xeh_InitPost_EH_Vehicle.hpp"
+        #include "HeartsAndMindsCore\Extended_InitPost_EventHandlers\Air.inc"
     };
     class Ship {
-        #include "core\fnc\eh\xeh_InitPost_EH_Vehicle.hpp"
+        #include "HeartsAndMindsCore\Extended_InitPost_EventHandlers\Ship.inc"
     };
 };
 

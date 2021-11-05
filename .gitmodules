@@ -1,0 +1,6 @@
+[submodule "SpecBased"]
+	path = SpecBased
+	url = git@github.com:Armachovsk/SpecBased.git
+[submodule "HeartsAndMindsCore"]
+	path = HeartsAndMindsCore
+	url = git@github.com:Armachovsk/HeartsAndMindsCore.git
