@@ -16,18 +16,18 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=10;
+		nextID=13;
 	};
 	class Camera
 	{
 		pos[]={4129.6675,258.17966,2801.739};
-		dir[]={-0.6855424,-0.56685585,0.45684364};
-		up[]={-0.47171122,0.82381701,0.31434709};
-		aside[]={0.55454504,1.4901161e-008,0.8321538};
+		dir[]={-0.44903284,-0.69438922,0.56237513};
+		up[]={-0.43328547,0.71957958,0.54265553};
+		aside[]={0.78148687,1.223525e-006,0.62398195};
 	};
 };
 binarizationWanted=0;
-sourceName="CO@14_SPEC_HNM";
+sourceName="HeartsAndMinds";
 addons[]=
 {
 	"rhsusf_c_troops",
@@ -2341,7 +2341,7 @@ class Mission
 				class Attribute1
 				{
 					property="VehicleCustomization";
-					expression="if (local _this) then {if (isSimpleObject _this) then {_this setVariable ['bis_fnc_initVehicle_customization',_value]} else {([_this] + _value + [true]) call (uinamespace getvariable 'bis_fnc_initVehicle');};};";
+					expression="if (local _this) then {([_this] + _value + [true]) call (uinamespace getvariable 'BIS_fnc_initVehicle')};";
 					class Value
 					{
 						class data
@@ -2906,7 +2906,7 @@ class Mission
 				class Attribute1
 				{
 					property="VehicleCustomization";
-					expression="if (local _this) then {if (isSimpleObject _this) then {_this setVariable ['bis_fnc_initVehicle_customization',_value]} else {([_this] + _value + [true]) call (uinamespace getvariable 'bis_fnc_initVehicle');};};";
+					expression="if (local _this) then {([_this] + _value + [true]) call (uinamespace getvariable 'BIS_fnc_initVehicle')};";
 					class Value
 					{
 						class data
