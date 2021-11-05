@@ -1,6 +1,9 @@
-
 btc_version = [1, 20, 9];
 diag_log format (["=BTC= HEARTS AND MINDS VERSION %1.%2.%3"] + btc_version);
+
+KPLIB_presetArsenal = "rhs_blufor";
+KPLIB_param_useArsenalPreset = 2;
+SPEC_arsenal_02_disableStandardInit = true;
 
 //Param
 //<< Time options >>
